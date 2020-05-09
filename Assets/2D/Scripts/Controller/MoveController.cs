@@ -36,30 +36,15 @@ namespace KnightAdventure
         {
             float h = InputManager.GetAxis("Horizontal");
 
+            animator.SetFloat("walk", Mathf.Abs(h));
+            playerTrans.position += h * Time.deltaTime * MoveSpeed * Vector3.right;
 
-            if (h > 0.3f)
-            {
-                animator.SetBool("walk", true);
-                playerTrans.position = playerTrans.position + h * Time.deltaTime * MoveSpeed * Vector3.right;
-            }
-            else if (h < -0.3f)
-            {
-                animator.SetBool("walk", true);
-                playerTrans.position = playerTrans.position + h * Time.deltaTime * MoveSpeed * Vector3.right;
-            }
-            else
-            {
-                animator.SetBool("walk", false);
-            }
+            //if (h > 0)
+            //    spriteRenderer.flipX = false;
+            //else if (h < 0)
+            //    spriteRenderer.flipX = true;
 
-            if (h > 0)
-            {
-                spriteRenderer.flipX = false;
-            }
-            else if (h < 0)
-            {
-                spriteRenderer.flipX = true;
-            }
+            spriteRenderer.flipX = h > 0 ? false : h < 0 ? true : spriteRenderer.flipX;
 
             bool jump = InputManager.GetButtonDown("Jump");
             if (jump)

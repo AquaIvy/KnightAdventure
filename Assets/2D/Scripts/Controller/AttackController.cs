@@ -41,28 +41,14 @@ namespace KnightAdventure
 
             if (fire1)
             {
-                //animator.SetBool("attack", true);
-
-                animator.SetTrigger("attackTrigger");
+                animator.SetTrigger("attack");
                 DetectAttack();
             }
-            else
-            {
-
-                animator.SetBool("attack", false);
-            }
-
-
 
             if (fire2)
             {
-                animator.SetBool("strike", true);
+                animator.SetTrigger("strike");
                 DetectStrike();
-            }
-            else
-            {
-
-                animator.SetBool("strike", false);
             }
         }
 
