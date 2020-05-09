@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace KnightAdventure
@@ -40,12 +41,12 @@ namespace KnightAdventure
 
         public static bool GetButtonDown(string buttonName)
         {
-            //if (Application.platform == RuntimePlatform.Android ||
-            //    Application.platform == RuntimePlatform.WindowsEditor)
-            //{
-            //    return buttonName == Instance.buttonDownName;
-            //}
-            //else
+            //if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor)
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                return buttonName == Instance.buttonDownName;
+            }
+            else
             {
                 return Input.GetButtonDown(buttonName);
             }
@@ -53,12 +54,12 @@ namespace KnightAdventure
 
         public static float GetAxis(string axisName)
         {
-            //if (Application.platform == RuntimePlatform.Android ||
-            //    Application.platform == RuntimePlatform.WindowsEditor)
-            //{
-            //    return Instance.Joystick.HorizontalInput();
-            //}
-            //else
+            //if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor)
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                return Instance.Joystick.HorizontalInput();
+            }
+            else
             {
                 return Input.GetAxis(axisName);
             }

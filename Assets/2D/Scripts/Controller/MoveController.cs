@@ -50,14 +50,10 @@ namespace KnightAdventure
 
             bool jump = InputManager.GetButtonDown("Jump");
             var ground = player.IsOnGround;
-            if (jump)
+            if (jump && ground)
             {
-                animator.SetBool("jump", true);
+                animator.SetTrigger("jump");
                 rigidbody.AddForce(Vector2.up * JumpForce);
-            }
-            else
-            {
-                animator.SetBool("jump", false);
             }
         }
     }

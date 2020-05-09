@@ -726,9 +726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4882c458bb0c93b46a948e3522b7b1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreLayer:
+  groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!70 &101120806
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1773,7 +1773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4882c458bb0c93b46a948e3522b7b1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreLayer:
+  groundLayer:
     serializedVersion: 2
     m_Bits: 0
 --- !u!50 &305404563
@@ -3132,8 +3132,8 @@ GameObject:
   m_Component:
   - component: {fileID: 739966438}
   - component: {fileID: 739966439}
-  m_Layer: 0
-  m_Name: GameObject (2)
+  m_Layer: 8
+  m_Name: Ground 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3528,8 +3528,8 @@ GameObject:
   m_Component:
   - component: {fileID: 889910429}
   - component: {fileID: 889910430}
-  m_Layer: 0
-  m_Name: GameObject (1)
+  m_Layer: 8
+  m_Name: Ground 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4409,8 +4409,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1413230976}
   - component: {fileID: 1413230977}
-  m_Layer: 0
-  m_Name: GameObject
+  m_Layer: 8
+  m_Name: Ground 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

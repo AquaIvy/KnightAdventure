@@ -43,26 +43,20 @@ namespace KnightAdventure
 
         public bool IsOnGround { get { return IsGround(); } }
 
-
-
-
-        private Vector3 pointTop;
-        private Vector3 pointBottom;
-        private float radius = 0.5f;
-        private float overLapCapsuleOffset = 0.85f;
         [SerializeField]
-        private LayerMask ignoreLayer;
+        private LayerMask groundLayer;
 
         private bool IsGround()
         {
-            pointBottom = transform.position + transform.up * radius - transform.up * overLapCapsuleOffset;
-            pointTop = transform.position + transform.up * capsuleCollider.size.y - transform.up * radius;
-            LayerMask ignoreMask = ~ignoreLayer;
+            var point = (Vector2)transform.position + capsuleCollider.offset;
+            var size = capsuleCollider.size;
+            var direction = CapsuleDirection2D.Vertical;
+            var angle = 0f;
 
-            var colliders = Physics.OverlapCapsule(pointBottom, pointTop, radius, ignoreMask);
-            Debug.DrawLine(pointBottom, pointTop, Color.green);
-            if (colliders.Length != 0)
+            var collider = Physics2D.OverlapCapsule(point, size, direction, angle, groundLayer);
+            if (collider != null)
             {
+                //Debug.Log(collider.name);
                 return true;
             }
             else
