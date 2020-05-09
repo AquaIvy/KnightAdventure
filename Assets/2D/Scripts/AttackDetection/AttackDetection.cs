@@ -46,14 +46,14 @@ namespace KnightAdventure
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log($"OnTriggerEnter2D  {collision.gameObject.name}");
+            //Debug.Log($"OnTriggerEnter2D  {collision.gameObject.name}");
 
             controller.RaiseDetected(collision);
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            Debug.Log($"OnTriggerExit2D  {collision.gameObject.name}");
+            //Debug.Log($"OnTriggerExit2D  {collision.gameObject.name}");
         }
     }
 }

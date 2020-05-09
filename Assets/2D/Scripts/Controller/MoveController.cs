@@ -14,6 +14,7 @@ namespace KnightAdventure
         private SpriteRenderer spriteRenderer;
         private new Rigidbody2D rigidbody;
         private Transform playerTrans;
+        private PlayerController player;
 
         [Range(0, 10)]
         public float MoveSpeed = 1;
@@ -29,6 +30,7 @@ namespace KnightAdventure
             spriteRenderer = GetComponent<SpriteRenderer>();
             rigidbody = GetComponent<Rigidbody2D>();
             playerTrans = GetComponent<Transform>();
+            player = GetComponent<PlayerController>();
         }
 
 
@@ -47,6 +49,7 @@ namespace KnightAdventure
             spriteRenderer.flipX = h > 0 ? false : h < 0 ? true : spriteRenderer.flipX;
 
             bool jump = InputManager.GetButtonDown("Jump");
+            var ground = player.IsOnGround;
             if (jump)
             {
                 animator.SetBool("jump", true);

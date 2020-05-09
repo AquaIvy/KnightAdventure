@@ -45,7 +45,7 @@ namespace KnightAdventure
 
             if (HP <= 0)
             {
-                animator.SetBool("die", true);
+                animator.SetTrigger("die");
                 //DelayTask.Invoke(() => {
                 //    animator.ex
                 //}, 100);

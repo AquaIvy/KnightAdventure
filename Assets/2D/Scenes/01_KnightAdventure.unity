@@ -687,7 +687,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1043290785
-  m_SortingLayer: 1
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 84ce2f114ad12bd4ebafc77060220324, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -726,6 +726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4882c458bb0c93b46a948e3522b7b1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!70 &101120806
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1638,7 +1641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.8, y: -31.099976}
+  m_AnchoredPosition: {x: -34.80005, y: -31.099976}
   m_SizeDelta: {x: 71.3, y: 71.3}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &302676664
@@ -1770,6 +1773,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4882c458bb0c93b46a948e3522b7b1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &305404563
 Rigidbody2D:
   serializedVersion: 4
@@ -1862,8 +1868,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1043290785
-  m_SortingLayer: 1
+  m_SortingLayerID: -9115775
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f6117829ba948194c8a5a22cc9d3dc22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2767,8 +2773,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -623256565
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c0967db3fe716a74fa0767d218f1deb6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -42,6 +42,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 979181669
+    locked: 0
+  - name: FarObject
+    uniqueID: 3817693595
+    locked: 0
+  - name: Enermy
+    uniqueID: 4285851521
+    locked: 0
   - name: Player
     uniqueID: 1043290785
+    locked: 0
+  - name: NearObject
+    uniqueID: 3671710731
     locked: 0
