@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 namespace KnightAdventure
 {
@@ -31,25 +31,45 @@ namespace KnightAdventure
             rigidbody = GetComponent<Rigidbody2D>();
             playerTrans = GetComponent<Transform>();
             player = GetComponent<PlayerController>();
+
+            var fire1 = new InputAction(binding: "*/leftButton");
+            var fire2 = new InputAction(binding: "*/leftButton");
+
+            fire1.performed += ctx => Fire1(ctx);
+            fire2.performed += ctx => Fire2(ctx);
+
+            fire1.Enable();
+            fire2.Enable();
         }
 
+        private void Fire2(InputAction.CallbackContext ctx)
+        {
+            animator.SetTrigger("strike");
+            DetectStrike();
+        }
+
+        private void Fire1(InputAction.CallbackContext ctx)
+        {
+            animator.SetTrigger("attack");
+            DetectAttack();
+        }
 
         void Update()
         {
-            bool fire1 = InputManager.GetButtonDown("Fire1");
-            bool fire2 = InputManager.GetButtonDown("Fire2");
+            //bool fire1 = InputManager.GetButtonDown("Fire1");
+            //bool fire2 = InputManager.GetButtonDown("Fire2");
 
-            if (fire1)
-            {
-                animator.SetTrigger("attack");
-                DetectAttack();
-            }
+            //if (fire1)
+            //{
+            //    animator.SetTrigger("attack");
+            //    DetectAttack();
+            //}
 
-            if (fire2)
-            {
-                animator.SetTrigger("strike");
-                DetectStrike();
-            }
+            //if (fire2)
+            //{
+            //    animator.SetTrigger("strike");
+            //    DetectStrike();
+            //}
         }
 
 
