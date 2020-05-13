@@ -72,7 +72,6 @@ public class JoystickMovement : MonoBehaviour, IPointerDownHandler, IDragHandler
             //Changing the position of the joystick handle as per input and handle area
             joystickHandleImg.rectTransform.anchoredPosition = new Vector2(joystickInput.x * (joystickHandleImg.rectTransform.sizeDelta.x / handleArea),
             joystickInput.y * (joystickHandleImg.rectTransform.sizeDelta.y / handleArea));
-
         }
     }
 

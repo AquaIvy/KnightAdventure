@@ -23,6 +23,12 @@ namespace KnightAdventure
         [Range(0, 300)]
         public float JumpForce = 150;
 
+        [SerializeField] private JoystickMovement joystickMovement;
+
+
+        private float move_speed = 0f;
+
+
         void Start()
         {
             animator = GetComponent<Animator>();
@@ -36,15 +42,27 @@ namespace KnightAdventure
             //move.performed += ctx => Move(ctx);
             //move.Enable();
 
-            var jump = new InputAction(binding: "*/space");
-            jump.performed += ctx => Jump(ctx);
-            jump.Enable();
+            //var jump = new InputAction(binding: "*/space");
+            //jump.performed += ctx => Jump(ctx);
+            //jump.Enable();
         }
 
-        private void Jump(InputAction.CallbackContext ctx)
-        {
-            Debug.Log("Jump");
+        #region InputSystem输入事件
 
+        public void Jump(InputAction.CallbackContext ctx)
+        {
+            if (ctx.phase != InputActionPhase.Started)
+                return;
+
+            Jump();
+        }
+
+        #endregion
+
+        #region 最终输入事件
+
+        public void Jump()
+        {
             var ground = player.IsOnGround;
             if (ground)
             {
@@ -53,11 +71,22 @@ namespace KnightAdventure
             }
         }
 
+        #endregion
+
+        private bool inputMoving = false;
+
         public void Move(InputAction.CallbackContext ctx)
         {
-            //Debug.Log($"{ctx.ReadValue<Vector2>()}   {ctx.action.bindings}"  );
-
-            Move(ctx.ReadValue<Vector2>().x);
+            if (ctx.phase == InputActionPhase.Started)
+            {
+                inputMoving = true;
+                move_speed = ctx.ReadValue<Vector2>().x;
+            }
+            else if (ctx.phase == InputActionPhase.Canceled)
+            {
+                inputMoving = false;
+                move_speed = 0;
+            }
         }
 
         private void Move(float h)
@@ -71,25 +100,17 @@ namespace KnightAdventure
 
         void Update()
         {
-            //float h = InputManager.GetAxis("Horizontal");
+            if (joystickMovement.HorizontalInput() != 0)
+            {
+                move_speed = joystickMovement.HorizontalInput();
+            }
 
-            //animator.SetFloat("walk", Mathf.Abs(h));
-            //playerTrans.position += h * Time.deltaTime * MoveSpeed * Vector3.right;
+            if (!inputMoving)
+            {
+                move_speed *= 0.9f;
+            }
 
-            ////if (h > 0)
-            ////    spriteRenderer.flipX = false;
-            ////else if (h < 0)
-            ////    spriteRenderer.flipX = true;
-
-            //spriteRenderer.flipX = h > 0 ? false : h < 0 ? true : spriteRenderer.flipX;
-
-            //bool jump = InputManager.GetButtonDown("Jump");
-            //var ground = player.IsOnGround;
-            //if (jump && ground)
-            //{
-            //    animator.SetTrigger("jump");
-            //    rigidbody.AddForce(Vector2.up * JumpForce);
-            //}
+            Move(move_speed);
         }
     }
 }

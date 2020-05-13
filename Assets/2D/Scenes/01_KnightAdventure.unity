@@ -781,6 +781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 2.74
   JumpForce: 300
+  joystickMovement: {fileID: 1035192330}
 --- !u!114 &101120809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,11 +852,18 @@ MonoBehaviour:
     m_ActionId: 5ab88b9a-7218-4854-9624-e4d30a4e6800
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c6082c07-6a0b-4de3-b271-a340c6cd0543
-    m_ActionName: Player/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 101120809}
+        m_MethodName: Fire1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: d83ccf8e-0f30-4133-9f98-16e610f6ecdf
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -898,6 +906,36 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 09b0089b-e339-420f-be7f-4b4047a06f5f
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 101120808}
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4d33cfb0-72c5-4837-a19c-2f0f263cc66f
+    m_ActionName: Player/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 101120809}
+        m_MethodName: Fire2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 11ee2e1c-c901-407b-9550-c2f27ef10745
+    m_ActionName: Player/Fire2[/Keyboard/enter,/Keyboard/j]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -1240,7 +1278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1641950042194076, guid: dcae1cf81de348946bf72faeafb5795a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224186218274013148, guid: dcae1cf81de348946bf72faeafb5795a,
         type: 3}
@@ -2316,7 +2354,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 345049974}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 101120809}
+        m_MethodName: Fire1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &397433440
 GameObject:
   m_ObjectHideFlags: 0
@@ -3910,6 +3959,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1035192330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114557713370688006, guid: dcae1cf81de348946bf72faeafb5795a,
+    type: 3}
+  m_PrefabInstance: {fileID: 144958857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9f0cc3dd4ffa447a7d06d65a888ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1058518382
 GameObject:
   m_ObjectHideFlags: 0
@@ -5552,7 +5613,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1719251290}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 101120808}
+        m_MethodName: Jump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1741446335
 GameObject:
   m_ObjectHideFlags: 0
@@ -6421,7 +6493,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1998703322}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 101120809}
+        m_MethodName: Fire2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2018889197
 GameObject:
   m_ObjectHideFlags: 0

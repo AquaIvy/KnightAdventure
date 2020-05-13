@@ -32,44 +32,58 @@ namespace KnightAdventure
             playerTrans = GetComponent<Transform>();
             player = GetComponent<PlayerController>();
 
-            var fire1 = new InputAction(binding: "*/leftButton");
-            var fire2 = new InputAction(binding: "*/leftButton");
+            //var fire1 = new InputAction(binding: "/{PrimaryAction}");
+            //var fire2 = new InputAction(binding: "*/rightButton");
 
-            fire1.performed += ctx => Fire1(ctx);
-            fire2.performed += ctx => Fire2(ctx);
+            //fire1.performed += ctx => Fire1(ctx);
+            //fire2.performed += ctx => Fire2(ctx);
 
-            fire1.Enable();
-            fire2.Enable();
+            //fire1.Enable();
+            //fire2.Enable();
         }
 
-        private void Fire2(InputAction.CallbackContext ctx)
+        #region InputSystem输入事件
+
+        public void Fire1(InputAction.CallbackContext ctx)
         {
-            animator.SetTrigger("strike");
-            DetectStrike();
+            if (ctx.phase != InputActionPhase.Started)
+                return;
+
+            Fire1();
         }
 
-        private void Fire1(InputAction.CallbackContext ctx)
+        public void Fire2(InputAction.CallbackContext ctx)
+        {
+            if (ctx.phase != InputActionPhase.Started)
+                return;
+
+            Fire2();
+        }
+
+        #endregion
+
+        #region 最终输入事件
+
+        public void Fire1()
         {
             animator.SetTrigger("attack");
             DetectAttack();
         }
 
+        public void Fire2()
+        {
+            animator.SetTrigger("strike");
+
+            //这里需要判断，当走的时候才能去做检测
+            DetectStrike();
+        }
+
+        #endregion
+
+
         void Update()
         {
-            //bool fire1 = InputManager.GetButtonDown("Fire1");
-            //bool fire2 = InputManager.GetButtonDown("Fire2");
 
-            //if (fire1)
-            //{
-            //    animator.SetTrigger("attack");
-            //    DetectAttack();
-            //}
-
-            //if (fire2)
-            //{
-            //    animator.SetTrigger("strike");
-            //    DetectStrike();
-            //}
         }
 
 
