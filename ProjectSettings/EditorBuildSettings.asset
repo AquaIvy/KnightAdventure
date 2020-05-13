@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/2D/Scenes/00_Start.unity
+    path: Assets/2D/Scenes/01_Start.unity
     guid: 5fc24adcd0fcde64fa505a76977f93bf
   - enabled: 1
-    path: Assets/2D/Scenes/01_KnightAdventure.unity
+    path: Assets/2D/Scenes/03_Scene_island.unity
     guid: 62cb8508294aa224484fa9b4f7cf8ba2
   m_configObjects: {}
