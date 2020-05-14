@@ -5,23 +5,26 @@ using UnityEngine;
 
 namespace KnightAdventure
 {
+    /// <summary>
+    /// 角色属性
+    /// </summary>
     public class PlayerController : MonoBehaviour
     {
 
-        private Animator animator;
-        private SpriteRenderer spriteRenderer;
-        private new Rigidbody2D rigidbody;
-        private Transform playerTrans;
+        //private Animator animator;
+        //private new Rigidbody2D rigidbody;
+        //private Transform playerTrans;
 
+        private SpriteRenderer spriteRenderer;
         private CapsuleCollider2D capsuleCollider;
 
 
         void Start()
         {
-            animator = GetComponent<Animator>();
+            //animator = GetComponent<Animator>();
+            //rigidbody = GetComponent<Rigidbody2D>();
+            //playerTrans = GetComponent<Transform>();
             spriteRenderer = GetComponent<SpriteRenderer>();
-            rigidbody = GetComponent<Rigidbody2D>();
-            playerTrans = GetComponent<Transform>();
             capsuleCollider = GetComponent<CapsuleCollider2D>();
         }
 

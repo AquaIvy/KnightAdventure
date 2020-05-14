@@ -100,7 +100,7 @@ namespace KnightAdventure
 
         void Update()
         {
-            if (joystickMovement.HorizontalInput() != 0)
+            if (joystickMovement != null && joystickMovement.HorizontalInput() != 0)
             {
                 move_speed = joystickMovement.HorizontalInput();
             }
