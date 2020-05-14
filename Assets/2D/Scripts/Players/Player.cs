@@ -15,6 +15,10 @@ namespace KnightAdventure
         {
             var playerController = new PlayerCreater().Create(player);
             current = playerController;
+
+            //这里先用调用，以后改为事件
+            GameWorkflow.Instance.Register(current);
+
             return current;
         }
 
@@ -27,6 +31,10 @@ namespace KnightAdventure
             }
 
             GameObject.Destroy(playerController.gameObject);
+
+            //这里先用调用，以后改为事件
+
+            GameWorkflow.Instance.Unregister(playerController);
         }
     }
 }
