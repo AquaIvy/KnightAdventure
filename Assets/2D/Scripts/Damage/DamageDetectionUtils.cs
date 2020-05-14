@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace KnightAdventure
 {
+    /// <summary>
+    /// 用于创建伤害检测区域
+    /// </summary>
     public static class DamageDetectionUtils
     {
         private static GameObject load;

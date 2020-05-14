@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2535201010990015523}
   - component: {fileID: 2535201010990015522}
   m_Layer: 0
-  m_Name: Knight
+  m_Name: Enemy
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,9 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4882c458bb0c93b46a948e3522b7b1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &2535201010990015521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +171,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 2.74
   JumpForce: 400
-  joystickMovement: {fileID: 0}
+  androidJoystick: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &2535201010990015520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,8 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da515b36b72462a42b2b0e35db3b0d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10
-  MP: 20
+  hp: 100
 --- !u!114 &2535201010990015522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2535201010990015528}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 

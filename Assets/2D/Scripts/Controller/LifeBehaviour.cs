@@ -72,7 +72,7 @@ namespace KnightAdventure
 
         public void OnDieAnimationPlayedOver()
         {
-            Player.Destroy(Player.current);
+            Player.Destroy();
         }
     }
 }
