@@ -11,10 +11,15 @@ namespace KnightAdventure
     {
         [SerializeField] private PlayerType player;
 
-        public void Select(int id)
+        private void Start()
         {
-            Select((PlayerType)id);
+#if UNITY_EDITOR
+            Create();
+#endif
+
         }
+
+        public void Select(int id) => Select((PlayerType)id);
 
         public void Select(PlayerType player)
         {

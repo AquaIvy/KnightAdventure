@@ -16,7 +16,7 @@ namespace KnightAdventure
             switch (player)
             {
                 case PlayerType.Knight:
-                    assetPath = "Prefabs/Player/Knight";
+                    assetPath = "Prefabs/Player/Knight2";
                     break;
                 case PlayerType.Guner:
                     throw new NotImplementedException();

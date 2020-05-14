@@ -7,12 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public bool autoSkip = false;
-    public string skipSceneName = string.Empty;
+    public bool autoLoad = false;
+    public string loadSceneName = string.Empty;
+    public float loadDelayTime = 1.5f;
 
     void Start()
     {
-        if (autoSkip)
+        if (autoLoad)
         {
             Invoke("LoadScene", 1.5f);
         }
@@ -20,7 +21,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadSceneAsync(skipSceneName, LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync(loadSceneName, LoadSceneMode.Single);
     }
 
     public static void LoadSceneBySetting()

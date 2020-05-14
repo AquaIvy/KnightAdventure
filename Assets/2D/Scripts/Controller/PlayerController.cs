@@ -57,9 +57,10 @@ namespace KnightAdventure
             var angle = 0f;
 
             var collider = Physics2D.OverlapCapsule(point, size, direction, angle, groundLayer);
+            //var collider = Physics2D.OverlapBox(point, size, angle, groundLayer);
             if (collider != null)
             {
-                //Debug.Log(collider.name);
+                Debug.Log(collider.name);
                 return true;
             }
             else

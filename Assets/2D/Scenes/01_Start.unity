@@ -314,8 +314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb613d8945597d4d92639d4e661c9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoSkip: 0
-  skipSceneName: 00_Start
+  autoLoad: 0
+  loadSceneName: 
+  loadDelayTime: 1.5
 --- !u!114 &288103889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,8 +1070,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb613d8945597d4d92639d4e661c9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoSkip: 1
-  skipSceneName: 02_Player
+  autoLoad: 1
+  loadSceneName: 02_Player
+  loadDelayTime: 0.1
 --- !u!1001 &1561682987
 PrefabInstance:
   m_ObjectHideFlags: 0

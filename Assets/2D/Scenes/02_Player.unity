@@ -851,8 +851,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb613d8945597d4d92639d4e661c9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoSkip: 0
-  skipSceneName: 03_Scene_island
+  autoLoad: 0
+  loadDelayTime: 1.5
+  loadSceneName: 03_Scene_island
 --- !u!1 &1545121850
 GameObject:
   m_ObjectHideFlags: 0
