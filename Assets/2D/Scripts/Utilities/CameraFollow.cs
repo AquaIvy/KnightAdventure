@@ -5,20 +5,30 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
+    public Vector3 offset;
     public bool lockPosY = true;
 
 
-    private Vector3 offset;
 
 
     void Start()
     {
+        if (target == null)
+        {
+            return;
+        }
+
         //设置相对偏移
         offset = target.position - this.transform.position;
     }
 
     void Update()
     {
+        if (target == null)
+        {
+            return;
+        }
+
         //更新位置
         if (lockPosY)
         {

@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 2.74
-  JumpForce: 300
+  JumpForce: 400
   joystickMovement: {fileID: 0}
 --- !u!114 &2535201010990015520
 MonoBehaviour:

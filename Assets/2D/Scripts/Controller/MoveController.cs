@@ -20,8 +20,8 @@ namespace KnightAdventure
         [Range(0, 10)]
         public float MoveSpeed = 1;
 
-        [Range(0, 300)]
-        public float JumpForce = 150;
+        [Range(100, 1000)]
+        public float JumpForce = 400;
 
         [SerializeField] private JoystickMovement joystickMovement;
 
