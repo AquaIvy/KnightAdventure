@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2535201010990015528
+--- !u!1 &8635899892405623666
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,16 +8,16 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2535201010990015533}
-  - component: {fileID: 2535201010990015530}
-  - component: {fileID: 2535201010990015531}
-  - component: {fileID: 2535201010990015535}
-  - component: {fileID: 2535201010990015534}
-  - component: {fileID: 2535201010990015532}
-  - component: {fileID: 2535201010990015521}
-  - component: {fileID: 2535201010990015520}
-  - component: {fileID: 2535201010990015523}
-  - component: {fileID: 2535201010990015522}
+  - component: {fileID: 8635899892405623671}
+  - component: {fileID: 8635899892405623664}
+  - component: {fileID: 8635899892405623665}
+  - component: {fileID: 8635899892405623669}
+  - component: {fileID: 8635899892405623668}
+  - component: {fileID: 2034380243819564496}
+  - component: {fileID: 8635899892405623675}
+  - component: {fileID: 8635899892405623674}
+  - component: {fileID: 8635899892405623673}
+  - component: {fileID: 8635899892405623672}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -25,27 +25,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2535201010990015533
+--- !u!4 &8635899892405623671
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2535201010990015528}
+  m_GameObject: {fileID: 8635899892405623666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.1, y: -0.27, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2535201010990015530
+--- !u!212 &8635899892405623664
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2535201010990015528}
+  m_GameObject: {fileID: 8635899892405623666}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -89,14 +89,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2535201010990015531
+--- !u!95 &8635899892405623665
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2535201010990015528}
+  m_GameObject: {fileID: 8635899892405623666}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b74ea43deeb5e8c4db831c1ee212664a, type: 2}
@@ -108,13 +108,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!70 &2535201010990015535
+--- !u!70 &8635899892405623669
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2535201010990015528}
+  m_GameObject: {fileID: 8635899892405623666}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -124,14 +124,14 @@ CapsuleCollider2D:
   m_Offset: {x: -0.008387566, y: -0.45704412}
   m_Size: {x: 1.0215092, y: 1.5162873}
   m_Direction: 0
---- !u!50 &2535201010990015534
+--- !u!50 &8635899892405623668
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2535201010990015528}
+  m_GameObject: {fileID: 8635899892405623666}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -139,34 +139,31 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2535201010990015532
+--- !u!114 &2034380243819564496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2535201010990015528}
+  m_GameObject: {fileID: 8635899892405623666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4882c458bb0c93b46a948e3522b7b1cd, type: 3}
+  m_Script: {fileID: 11500000, guid: c3a8998d3458d9c48b4dfb783febaaed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
---- !u!114 &2535201010990015521
+--- !u!114 &8635899892405623675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2535201010990015528}
+  m_GameObject: {fileID: 8635899892405623666}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66cc00989a10bf84f95783f28fb039e2, type: 3}
@@ -175,13 +172,16 @@ MonoBehaviour:
   MoveSpeed: 2.74
   JumpForce: 400
   joystickMovement: {fileID: 0}
---- !u!114 &2535201010990015520
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &8635899892405623674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2535201010990015528}
+  m_GameObject: {fileID: 8635899892405623666}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7be385147170fc54c966493456f3af35, type: 3}
@@ -189,27 +189,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackDamage: 52
   StrikeDamage: 20
---- !u!114 &2535201010990015523
+--- !u!114 &8635899892405623673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2535201010990015528}
+  m_GameObject: {fileID: 8635899892405623666}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da515b36b72462a42b2b0e35db3b0d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10
-  MP: 20
---- !u!114 &2535201010990015522
+  hp: 100
+--- !u!114 &8635899892405623672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2535201010990015528}
+  m_GameObject: {fileID: 8635899892405623666}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
@@ -231,7 +230,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2535201010990015521}
+      - m_Target: {fileID: 8635899892405623675}
         m_MethodName: Move
         m_Mode: 0
         m_Arguments:
@@ -246,7 +245,7 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2535201010990015520}
+      - m_Target: {fileID: 8635899892405623674}
         m_MethodName: Fire1
         m_Mode: 0
         m_Arguments:
@@ -301,7 +300,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2535201010990015521}
+      - m_Target: {fileID: 8635899892405623675}
         m_MethodName: Jump
         m_Mode: 0
         m_Arguments:
@@ -316,7 +315,7 @@ MonoBehaviour:
     m_ActionName: Player/New action
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2535201010990015520}
+      - m_Target: {fileID: 8635899892405623674}
         m_MethodName: Fire2
         m_Mode: 0
         m_Arguments:

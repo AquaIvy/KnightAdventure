@@ -10,22 +10,14 @@ namespace KnightAdventure
     /// </summary>
     public class PlayerController : MonoBehaviour
     {
+        //public int Hp { get; set; }
 
-        //private Animator animator;
-        //private new Rigidbody2D rigidbody;
-        //private Transform playerTrans;
 
         private SpriteRenderer spriteRenderer;
-        private CapsuleCollider2D capsuleCollider;
-
 
         void Start()
         {
-            //animator = GetComponent<Animator>();
-            //rigidbody = GetComponent<Rigidbody2D>();
-            //playerTrans = GetComponent<Transform>();
             spriteRenderer = GetComponent<SpriteRenderer>();
-            capsuleCollider = GetComponent<CapsuleCollider2D>();
         }
 
 
@@ -44,29 +36,5 @@ namespace KnightAdventure
         /// </summary>
         public bool IsFaceBack { get { return spriteRenderer.flipX; } }
 
-        public bool IsOnGround { get { return IsGround(); } }
-
-        [SerializeField]
-        private LayerMask groundLayer;
-
-        private bool IsGround()
-        {
-            var point = (Vector2)transform.position + capsuleCollider.offset;
-            var size = capsuleCollider.size;
-            var direction = CapsuleDirection2D.Vertical;
-            var angle = 0f;
-
-            var collider = Physics2D.OverlapCapsule(point, size, direction, angle, groundLayer);
-            //var collider = Physics2D.OverlapBox(point, size, angle, groundLayer);
-            if (collider != null)
-            {
-                Debug.Log(collider.name);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
     }
 }

@@ -9,13 +9,14 @@ namespace KnightAdventure
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(SpriteRenderer))]
     [RequireComponent(typeof(Rigidbody2D))]
-    public class MoveController : MonoBehaviour
+    public class MoveBehaviour : MonoBehaviour
     {
         private Animator animator;
         private SpriteRenderer spriteRenderer;
         private new Rigidbody2D rigidbody;
         private Transform playerTrans;
         private PlayerController player;
+        private CapsuleCollider2D capsuleCollider;
 
         [Range(0, 10)]
         public float MoveSpeed = 1;
@@ -23,7 +24,7 @@ namespace KnightAdventure
         [Range(100, 1000)]
         public float JumpForce = 400;
 
-        [SerializeField] private JoystickMovement joystickMovement;
+        [SerializeField] private JoystickMovement androidJoystick;
 
 
         private float move_speed = 0f;
@@ -36,6 +37,7 @@ namespace KnightAdventure
             rigidbody = GetComponent<Rigidbody2D>();
             playerTrans = GetComponent<Transform>();
             player = GetComponent<PlayerController>();
+            capsuleCollider = GetComponent<CapsuleCollider2D>();
 
 
             //var move = new InputAction(binding: "Move:<Joystick>/stick[Joystick]");
@@ -63,7 +65,7 @@ namespace KnightAdventure
 
         public void Jump()
         {
-            var ground = player.IsOnGround;
+            var ground = IsGround();
             if (ground)
             {
                 animator.SetTrigger("jump");
@@ -100,9 +102,9 @@ namespace KnightAdventure
 
         void Update()
         {
-            if (joystickMovement != null && joystickMovement.HorizontalInput() != 0)
+            if (androidJoystick != null && androidJoystick.HorizontalInput() != 0)
             {
-                move_speed = joystickMovement.HorizontalInput();
+                move_speed = androidJoystick.HorizontalInput();
             }
 
             if (!inputMoving)
@@ -111,6 +113,29 @@ namespace KnightAdventure
             }
 
             Move(move_speed);
+        }
+
+        [SerializeField]
+        private LayerMask groundLayer = 1 << 8;
+
+        private bool IsGround()
+        {
+            var point = (Vector2)transform.position + capsuleCollider.offset;
+            var size = capsuleCollider.size;
+            var direction = CapsuleDirection2D.Vertical;
+            var angle = 0f;
+
+            var collider = Physics2D.OverlapCapsule(point, size, direction, angle, groundLayer);
+            //var collider = Physics2D.OverlapBox(point, size, angle, groundLayer);
+            if (collider != null)
+            {
+                Debug.Log(collider.name);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

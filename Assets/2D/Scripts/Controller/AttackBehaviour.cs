@@ -9,7 +9,7 @@ namespace KnightAdventure
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(SpriteRenderer))]
     [RequireComponent(typeof(Rigidbody2D))]
-    public class AttackController : MonoBehaviour
+    public class AttackBehaviour : MonoBehaviour
     {
         private Animator animator;
         private SpriteRenderer spriteRenderer;
@@ -31,15 +31,6 @@ namespace KnightAdventure
             rigidbody = GetComponent<Rigidbody2D>();
             playerTrans = GetComponent<Transform>();
             player = GetComponent<PlayerController>();
-
-            //var fire1 = new InputAction(binding: "/{PrimaryAction}");
-            //var fire2 = new InputAction(binding: "*/rightButton");
-
-            //fire1.performed += ctx => Fire1(ctx);
-            //fire2.performed += ctx => Fire2(ctx);
-
-            //fire1.Enable();
-            //fire2.Enable();
         }
 
         #region InputSystem输入事件
@@ -95,11 +86,11 @@ namespace KnightAdventure
 
             if (player.IsFaceForward)
             {
-                AttackDetection.Detect(this, offsetForward, detectionSize);
+                DamageDetectionUtils.CreateRectDamage(this, new Rect(offsetForward, detectionSize), 100);
             }
             else
             {
-                AttackDetection.Detect(this, backForward, detectionSize);
+                DamageDetectionUtils.CreateRectDamage(this, new Rect(backForward, detectionSize), 100);
             }
         }
 
@@ -111,15 +102,15 @@ namespace KnightAdventure
 
             if (player.IsFaceForward)
             {
-                AttackDetection.Detect(this, offsetForward, detectionSize);
+                DamageDetectionUtils.CreateRectDamage(this, new Rect(offsetForward, detectionSize), 100);
             }
             else
             {
-                AttackDetection.Detect(this, backForward, detectionSize);
+                DamageDetectionUtils.CreateRectDamage(this, new Rect(backForward, detectionSize), 100);
             }
         }
 
-        public void RaiseDetected(Collider2D collision)
+        public void OnTriggerDetected(Collider2D collision)
         {
             var go = collision.gameObject;
             if (go.tag != "Enermy")
@@ -127,7 +118,7 @@ namespace KnightAdventure
                 return;
             }
 
-            var health = go.GetComponent<HealthController>();
+            var health = go.GetComponent<LifeBehaviour>();
             health.ReduceHP(AttackDamage);
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using KnightAdventure;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,14 +20,18 @@ public class DieBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.gameObject.SetActive(false);
+        var life = animator.GetComponent<LifeBehaviour>();
+        if (life != null)
+        {
+            life.OnDieAnimationPlayedOver();
+        }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
     //    // Implement code that processes and affects root motion
-        
+
     //}
 
     // OnStateIK is called right after Animator.OnAnimatorIK()
