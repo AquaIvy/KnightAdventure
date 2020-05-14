@@ -6,13 +6,8 @@ using UnityEngine;
 
 namespace KnightAdventure
 {
-    public class LifeBehaviour : MonoBehaviour
+    public class LifeBehaviour : PlayerBehaviour
     {
-        private Animator animator;
-        private SpriteRenderer spriteRenderer;
-        private new Rigidbody2D rigidbody;
-        private Transform playerTrans;
-
         [Range(0, 100)] [SerializeField] private int hp = 100;
 
 
@@ -33,19 +28,17 @@ namespace KnightAdventure
         }
 
 
-        void Start()
+        protected override void Start()
         {
-            animator = GetComponent<Animator>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            rigidbody = GetComponent<Rigidbody2D>();
-            playerTrans = GetComponent<Transform>();
+            base.Start();
         }
 
 
-        void Update()
+        protected override void Update()
         {
-
+            base.Update();
         }
+
 
         /// <summary>
         /// 增加血量
@@ -67,12 +60,13 @@ namespace KnightAdventure
 
         public void Die()
         {
-            animator.SetTrigger("die");
+            animator?.SetTrigger("die");
         }
 
         public void OnDieAnimationPlayedOver()
         {
-            Player.Destroy();
+            GameObject.Destroy(gameObject);
+            player.OnDieAnimationPlayedOver();
         }
     }
 }

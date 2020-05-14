@@ -47,7 +47,10 @@ namespace KnightAdventure
             var life = collision.GetComponent<LifeBehaviour>();
             if (life != null)
             {
-                life.ReduceHP(attacker.AttackDamage);
+                if (collision.GetComponent<AttackBehaviour>() != attacker)
+                {
+                    life.ReduceHP(attacker.AttackDamage);
+                }
             }
         }
 

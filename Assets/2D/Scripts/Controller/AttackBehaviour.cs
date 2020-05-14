@@ -6,16 +6,13 @@ using UnityEngine.InputSystem;
 
 namespace KnightAdventure
 {
-    [RequireComponent(typeof(Animator))]
-    [RequireComponent(typeof(SpriteRenderer))]
-    [RequireComponent(typeof(Rigidbody2D))]
-    public class AttackBehaviour : MonoBehaviour
+    
+    //[RequireComponent(typeof(Rigidbody2D))]
+    public class AttackBehaviour : PlayerBehaviour
     {
-        private Animator animator;
-        private SpriteRenderer spriteRenderer;
-        private new Rigidbody2D rigidbody;
-        private Transform playerTrans;
-        private PlayerController player;
+        //private SpriteRenderer spriteRenderer;
+        //private new Rigidbody2D rigidbody;
+        //private Transform playerTrans;
 
         [Range(0, 100)]
         public int AttackDamage = 10;
@@ -23,14 +20,12 @@ namespace KnightAdventure
         [Range(0, 100)]
         public int StrikeDamage = 20;
 
-
-        void Start()
+        protected override void Start()
         {
-            animator = GetComponent<Animator>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            rigidbody = GetComponent<Rigidbody2D>();
-            playerTrans = GetComponent<Transform>();
-            player = GetComponent<PlayerController>();
+            base.Start();
+            //spriteRenderer = GetComponent<SpriteRenderer>();
+            //rigidbody = GetComponent<Rigidbody2D>();
+            //playerTrans = GetComponent<Transform>();
         }
 
         #region InputSystem输入事件
@@ -72,7 +67,7 @@ namespace KnightAdventure
         #endregion
 
 
-        void Update()
+        protected override void Update()
         {
 
         }

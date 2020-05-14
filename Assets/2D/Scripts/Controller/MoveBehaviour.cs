@@ -6,16 +6,12 @@ using UnityEngine.InputSystem;
 
 namespace KnightAdventure
 {
-    [RequireComponent(typeof(Animator))]
-    [RequireComponent(typeof(SpriteRenderer))]
     [RequireComponent(typeof(Rigidbody2D))]
-    public class MoveBehaviour : MonoBehaviour
+    public class MoveBehaviour : PlayerBehaviour
     {
-        private Animator animator;
         private SpriteRenderer spriteRenderer;
         private new Rigidbody2D rigidbody;
         private Transform playerTrans;
-        private PlayerController player;
         private CapsuleCollider2D capsuleCollider;
 
         [Range(0, 10)]
@@ -30,23 +26,14 @@ namespace KnightAdventure
         private float move_speed = 0f;
 
 
-        void Start()
+        protected override void Start()
         {
-            animator = GetComponent<Animator>();
+            base.Start();
+
             spriteRenderer = GetComponent<SpriteRenderer>();
             rigidbody = GetComponent<Rigidbody2D>();
             playerTrans = GetComponent<Transform>();
-            player = GetComponent<PlayerController>();
             capsuleCollider = GetComponent<CapsuleCollider2D>();
-
-
-            //var move = new InputAction(binding: "Move:<Joystick>/stick[Joystick]");
-            //move.performed += ctx => Move(ctx);
-            //move.Enable();
-
-            //var jump = new InputAction(binding: "*/space");
-            //jump.performed += ctx => Jump(ctx);
-            //jump.Enable();
         }
 
         #region InputSystem输入事件
@@ -100,8 +87,10 @@ namespace KnightAdventure
         }
 
 
-        void Update()
+        protected override void Update()
         {
+            base.Update();
+
             if (androidJoystick != null && androidJoystick.HorizontalInput() != 0)
             {
                 move_speed = androidJoystick.HorizontalInput();
@@ -129,7 +118,7 @@ namespace KnightAdventure
             //var collider = Physics2D.OverlapBox(point, size, angle, groundLayer);
             if (collider != null)
             {
-                Debug.Log(collider.name);
+                //Debug.Log("IsGround  true ," + collider.name);
                 return true;
             }
             else
