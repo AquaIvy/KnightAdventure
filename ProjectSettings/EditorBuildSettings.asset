@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/2D/Scenes/01_Start.unity
     guid: 5fc24adcd0fcde64fa505a76977f93bf
   - enabled: 1
+    path: Assets/2D/Scenes/02_Player.unity
+    guid: f8f88f5998f695b4489d60eb61b2a45e
+  - enabled: 1
     path: Assets/2D/Scenes/03_Scene_island.unity
     guid: 62cb8508294aa224484fa9b4f7cf8ba2
   m_configObjects: {}
