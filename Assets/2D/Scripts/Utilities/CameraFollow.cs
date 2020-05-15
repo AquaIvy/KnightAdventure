@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
         offset = target.position - this.transform.position;
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (target == null)
         {

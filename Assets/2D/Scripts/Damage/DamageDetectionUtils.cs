@@ -15,16 +15,16 @@ namespace KnightAdventure
     {
         private static GameObject load;
 
-        public static void CreateRectDamage(AttackBehaviour attacker, Rect rect, int aliveTime)
+        public static void CreateRectDamage(Character character, Rect rect, int aliveTime)
         {
             if (load == null)
                 load = Resources.Load<GameObject>("AttackDetection");
 
             var ins = GameObject.Instantiate<GameObject>(load);
-            ins.transform.position = attacker.transform.position;
+            ins.transform.position = character.transform.position;
 
             var dectect = ins.GetComponent<DamageDetection>();
-            dectect.SetData(attacker, rect, aliveTime );
+            dectect.SetData(character, rect, aliveTime );
         }
     }
 }

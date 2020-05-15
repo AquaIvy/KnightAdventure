@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2535201010990015535}
   - component: {fileID: 2535201010990015534}
   - component: {fileID: -5942810117659543408}
+  - component: {fileID: 2535201010990015523}
   - component: {fileID: 2535201010990015521}
   - component: {fileID: 2535201010990015520}
-  - component: {fileID: 2535201010990015523}
   - component: {fileID: -593827203402246752}
   m_Layer: 0
   m_Name: Enemy
@@ -157,6 +157,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874025d48f737c648856a6e587fcc7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2535201010990015523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2535201010990015528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da515b36b72462a42b2b0e35db3b0d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
 --- !u!114 &2535201010990015521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,19 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackDamage: 52
   StrikeDamage: 20
---- !u!114 &2535201010990015523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2535201010990015528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da515b36b72462a42b2b0e35db3b0d86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
+  HitDamage: 5
 --- !u!114 &-593827203402246752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,3 +215,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf4bf008a94aa3488bd452c0de6ba8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patrolPoints: []

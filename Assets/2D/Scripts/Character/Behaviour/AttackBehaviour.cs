@@ -18,6 +18,9 @@ namespace KnightAdventure
         [Range(0, 100)]
         public int StrikeDamage = 20;
 
+        [Range(0, 10)]
+        public int HitDamage = 5;
+
         protected override void Start()
         {
             base.Start();
@@ -76,11 +79,11 @@ namespace KnightAdventure
 
             if (character.IsFaceForward)
             {
-                DamageDetectionUtils.CreateRectDamage(this, new Rect(offsetForward, detectionSize), 100);
+                DamageDetectionUtils.CreateRectDamage(character, new Rect(offsetForward, detectionSize), 100);
             }
             else
             {
-                DamageDetectionUtils.CreateRectDamage(this, new Rect(backForward, detectionSize), 100);
+                DamageDetectionUtils.CreateRectDamage(character, new Rect(backForward, detectionSize), 100);
             }
         }
 
@@ -92,24 +95,13 @@ namespace KnightAdventure
 
             if (character.IsFaceForward)
             {
-                DamageDetectionUtils.CreateRectDamage(this, new Rect(offsetForward, detectionSize), 100);
+                DamageDetectionUtils.CreateRectDamage(character, new Rect(offsetForward, detectionSize), 100);
             }
             else
             {
-                DamageDetectionUtils.CreateRectDamage(this, new Rect(backForward, detectionSize), 100);
+                DamageDetectionUtils.CreateRectDamage(character, new Rect(backForward, detectionSize), 100);
             }
         }
 
-        public void OnTriggerDetected(Collider2D collision)
-        {
-            var go = collision.gameObject;
-            if (go.tag != "Enermy")
-            {
-                return;
-            }
-
-            var health = go.GetComponent<LifeBehaviour>();
-            health.ReduceHP(AttackDamage);
-        }
     }
 }

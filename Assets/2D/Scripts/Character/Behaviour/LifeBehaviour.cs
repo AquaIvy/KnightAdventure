@@ -78,5 +78,25 @@ namespace KnightAdventure
 
             CharacterDied?.Invoke(this, new CharacterDiedEventArgs { Character = character });
         }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            var character = collision.gameObject.GetComponent<Character>();
+            if (character == null)
+                return;
+
+            if (this.character.Type == CharacterType.Enemy)
+                return;
+
+            if (character.Type != CharacterType.Enemy)
+                return;
+
+            if (character.Attack == null)
+                return;
+
+            this.ReduceHP(character.Attack.HitDamage);
+        }
+
+
     }
 }
