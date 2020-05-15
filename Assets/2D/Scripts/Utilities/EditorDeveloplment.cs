@@ -10,12 +10,18 @@ namespace KnightAdventure
 {
     public class EditorDeveloplment : MonoBehaviour
     {
+        public static bool IsLoadedByOtherScene = false;
+
         private void Start()
         {
             if (Application.platform == RuntimePlatform.WindowsEditor)
             {
-                EditorDevelopCreate();
+                if (!IsLoadedByOtherScene)
+                {
+                    EditorDevelopCreate();
+                }
 
+                IsLoadedByOtherScene = false;
             }
         }
 

@@ -7,14 +7,14 @@ using UnityEngine;
 
 namespace KnightAdventure
 {
-    [RequireComponent(typeof(PlayerController))]
+    [RequireComponent(typeof(Character))]
     public class EnemyAI : MonoBehaviour
     {
-        private PlayerController player;
+        private Character player;
 
         private void Start()
         {
-            player = GetComponent<PlayerController>();
+            player = GetComponent<Character>();
         }
 
         float attack_time = 0;

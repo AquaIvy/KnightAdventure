@@ -9,35 +9,32 @@ namespace KnightAdventure
 {
     public class PlayerCreater
     {
-        public PlayerController Create(PlayerType player)
+        public Player Create(PlayerType type)
         {
             string assetPath = string.Empty;
 
-            switch (player)
+            switch (type)
             {
                 case PlayerType.Knight:
-                    assetPath = "Prefabs/Player/Knight";
+                    assetPath = "Prefabs/Characters/Knight";
                     break;
                 case PlayerType.Guner:
-                    throw new NotImplementedException();
                     break;
                 case PlayerType.Wizard:
-                    throw new NotImplementedException();
                     break;
                 default:
-                    throw new NotImplementedException();
                     break;
             }
 
             if (string.IsNullOrEmpty(assetPath))
             {
-                throw new NotImplementedException($"PlayerType {player} Not Implemented");
+                throw new NotImplementedException($"PlayerType {type} Not Implemented");
             }
 
             var load = Resources.Load<GameObject>(assetPath);
             var ins = GameObject.Instantiate<GameObject>(load, null, false);
 
-            return ins.GetComponent<PlayerController>();
+            return ins.GetComponent<Player>();
         }
     }
 

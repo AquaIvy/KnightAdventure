@@ -6,9 +6,15 @@ using UnityEngine;
 
 namespace KnightAdventure
 {
-    public class LifeBehaviour : PlayerBehaviour
+    /// <summary>
+    /// 通用Life行为类
+    /// </summary>
+    public class LifeBehaviour : CharacterBehaviour
     {
         [Range(0, 100)] [SerializeField] private int hp = 100;
+
+
+        public event EventHandler<CharacterDiedEventArgs> CharacterDied;
 
 
         public int Hp
@@ -63,10 +69,14 @@ namespace KnightAdventure
             animator?.SetTrigger("die");
         }
 
+        /// <summary>
+        /// 角色死亡动画播放完毕，由动画状态机调用
+        /// </summary>
         public void OnDieAnimationPlayedOver()
         {
             GameObject.Destroy(gameObject);
-            player.OnDieAnimationPlayedOver();
+
+            CharacterDied?.Invoke(this, new CharacterDiedEventArgs { Character = character });
         }
     }
 }

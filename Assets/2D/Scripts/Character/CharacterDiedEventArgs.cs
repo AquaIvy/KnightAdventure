@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace KnightAdventure
 {
-    public class PlayerDiedEventArgs : EventArgs
+    public class CharacterDiedEventArgs : EventArgs
     {
-        public PlayerController Player { get; set; }
+        public Character Character { get; set; }
     }
 }

@@ -7,15 +7,15 @@ using UnityEngine;
 namespace KnightAdventure
 {
     /// <summary>
-    /// 角色各种Behavior行为的基类
+    /// 所有游戏角色中各种Behavior行为的基类
     /// </summary>
 
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(SpriteRenderer))]
-    [RequireComponent(typeof(PlayerController))]
-    public class PlayerBehaviour : MonoBehaviour
+    [RequireComponent(typeof(Character))]
+    public class CharacterBehaviour : MonoBehaviour
     {
-        protected PlayerController player;
+        protected Character character;
 
         protected Animator animator;
         //private SpriteRenderer spriteRenderer;
@@ -25,7 +25,7 @@ namespace KnightAdventure
 
         protected virtual void Start()
         {
-            player = GetComponent<PlayerController>();
+            character = GetComponent<Character>();
             animator = GetComponent<Animator>();
             //spriteRenderer = GetComponent<SpriteRenderer>();
             //rigidbody = GetComponent<Rigidbody2D>();

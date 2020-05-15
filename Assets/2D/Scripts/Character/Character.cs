@@ -6,22 +6,19 @@ using UnityEngine;
 namespace KnightAdventure
 {
     /// <summary>
-    /// 角色控制器，控制各种Behavior行为类
+    /// 角色，控制各种Behavior行为类。
+    /// （指各种各样的游戏内角色，也可用在非生命体角色上）
     /// </summary>
-    public class PlayerController : MonoBehaviour
+    public class Character : MonoBehaviour
     {
-
-        public event EventHandler<PlayerDiedEventArgs> PlayerDied;
+        public CharacterType Type { get; protected set; } = CharacterType.None;
 
         private LifeBehaviour health;
         private MoveBehaviour move;
         private AttackBehaviour attack;
 
-        private SpriteRenderer spriteRenderer;
 
-
-
-        public LifeBehaviour Health
+        public LifeBehaviour Life
         {
             get
             {
@@ -60,19 +57,8 @@ namespace KnightAdventure
             }
         }
 
+        private SpriteRenderer spriteRenderer;
 
-
-
-        void Start()
-        {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-        }
-
-
-        void Update()
-        {
-
-        }
 
         /// <summary>
         /// 是否面向正前方（右方）
@@ -84,9 +70,18 @@ namespace KnightAdventure
         /// </summary>
         public bool IsFaceBack { get { return spriteRenderer.flipX; } }
 
-        public void OnDieAnimationPlayedOver()
+
+        protected virtual void Start()
         {
-            PlayerDied?.Invoke(this, new PlayerDiedEventArgs { Player = this });
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
+
+
+        protected virtual void Update()
+        {
+
+        }
+
+
     }
 }

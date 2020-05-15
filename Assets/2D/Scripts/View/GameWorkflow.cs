@@ -35,22 +35,22 @@ namespace KnightAdventure
             canvas.DontDestroyOnLoad();
         }
 
-        internal void Register(PlayerController player)
+        internal void Register(Player player)
         {
-            player.PlayerDied += Player_PlayerDied;
+            player.Life.CharacterDied += Player_PlayerDied;
         }
 
-        private void Player_PlayerDied(object sender, PlayerDiedEventArgs e)
+        private void Player_PlayerDied(object sender, CharacterDiedEventArgs e)
         {
-            e.Player.PlayerDied -= Player_PlayerDied;
+            Unregister(e.Character as Player);
 
             //玩家死亡，播放GameOver动画
             uiCanvas.PlayGameOverAnimation();
         }
 
-        internal void Unregister(PlayerController playerController)
+        internal void Unregister(Player player)
         {
-
+            player.Life.CharacterDied -= Player_PlayerDied;
         }
     }
 }

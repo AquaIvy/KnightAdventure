@@ -6,13 +6,11 @@ using UnityEngine.InputSystem;
 
 namespace KnightAdventure
 {
-    
-    //[RequireComponent(typeof(Rigidbody2D))]
-    public class AttackBehaviour : PlayerBehaviour
+    /// <summary>
+    /// 通用Attack行为类
+    /// </summary>
+    public class AttackBehaviour : CharacterBehaviour
     {
-        //private SpriteRenderer spriteRenderer;
-        //private new Rigidbody2D rigidbody;
-        //private Transform playerTrans;
 
         [Range(0, 100)]
         public int AttackDamage = 10;
@@ -23,9 +21,6 @@ namespace KnightAdventure
         protected override void Start()
         {
             base.Start();
-            //spriteRenderer = GetComponent<SpriteRenderer>();
-            //rigidbody = GetComponent<Rigidbody2D>();
-            //playerTrans = GetComponent<Transform>();
         }
 
         #region InputSystem输入事件
@@ -79,7 +74,7 @@ namespace KnightAdventure
             Vector2 backForward = new Vector2(-1.14f, -0.5f);
             Vector2 detectionSize = new Vector2(1.236866f, 1.45f);
 
-            if (player.IsFaceForward)
+            if (character.IsFaceForward)
             {
                 DamageDetectionUtils.CreateRectDamage(this, new Rect(offsetForward, detectionSize), 100);
             }
@@ -95,7 +90,7 @@ namespace KnightAdventure
             Vector2 backForward = new Vector2(-1.14f, -0.5f);
             Vector2 detectionSize = new Vector2(1.236866f, 1.45f);
 
-            if (player.IsFaceForward)
+            if (character.IsFaceForward)
             {
                 DamageDetectionUtils.CreateRectDamage(this, new Rect(offsetForward, detectionSize), 100);
             }

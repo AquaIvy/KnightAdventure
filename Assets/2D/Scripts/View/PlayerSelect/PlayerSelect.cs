@@ -31,6 +31,7 @@ namespace KnightAdventure
             var playerController = Player.Create(player);
             UnityEngine.Object.DontDestroyOnLoad(playerController.gameObject);
 
+            EditorDeveloplment.IsLoadedByOtherScene = true;
             LoadScene();
 
             Resources.UnloadUnusedAssets();

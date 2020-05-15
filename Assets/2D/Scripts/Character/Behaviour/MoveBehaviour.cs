@@ -6,8 +6,11 @@ using UnityEngine.InputSystem;
 
 namespace KnightAdventure
 {
+    /// <summary>
+    /// 通用Move行为类
+    /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
-    public class MoveBehaviour : PlayerBehaviour
+    public class MoveBehaviour : CharacterBehaviour
     {
         private SpriteRenderer spriteRenderer;
         private new Rigidbody2D rigidbody;

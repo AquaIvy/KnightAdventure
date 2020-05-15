@@ -20,11 +20,15 @@ public class DieAnimationStateMachineBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        var life = animator.GetComponent<LifeBehaviour>();
-        if (life != null)
-        {
-            life.OnDieAnimationPlayedOver();
-        }
+        var character = animator.GetComponent<Character>();
+        if (character == null)
+            return;
+
+        var life = character.Life;
+        if (life == null)
+            return;
+
+        life.OnDieAnimationPlayedOver();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
