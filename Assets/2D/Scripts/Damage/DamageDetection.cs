@@ -32,13 +32,24 @@ namespace KnightAdventure
             box.size = rect.size;
         }
 
+        private DelayTask taskAliveCountdown;
+
         private void AliveCountdown(int aliveTime)
         {
-            DelayTask.Invoke(() =>
+            taskAliveCountdown = DelayTask.Invoke(() =>
             {
-                GameObject.Destroy(this.gameObject);
+                if (this.gameObject != null)
+                {
+                    GameObject.Destroy(this.gameObject);
+                }
             }, aliveTime);
         }
+
+        private void OnDestroy()
+        {
+            taskAliveCountdown?.Release();
+        }
+
 
         private void OnTriggerEnter2D(Collider2D collision)
         {

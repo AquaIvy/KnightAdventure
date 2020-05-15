@@ -24,7 +24,7 @@ namespace KnightAdventure
             ins.transform.position = attacker.transform.position;
 
             var dectect = ins.GetComponent<DamageDetection>();
-            dectect.SetData(attacker, rect, aliveTime * 10);
+            dectect.SetData(attacker, rect, aliveTime );
         }
     }
 }

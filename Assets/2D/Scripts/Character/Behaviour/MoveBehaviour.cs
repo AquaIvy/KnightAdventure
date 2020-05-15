@@ -63,6 +63,11 @@ namespace KnightAdventure
             }
         }
 
+        public void Blink()
+        {
+            animator.SetTrigger("blink");
+        }
+
         #endregion
 
         private bool inputMoving = false;
