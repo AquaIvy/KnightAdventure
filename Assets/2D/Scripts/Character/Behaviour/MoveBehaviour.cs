@@ -86,12 +86,24 @@ namespace KnightAdventure
             }
         }
 
-        private void Move(float h)
+        public void StartMoveAI(float speed)
         {
-            animator.SetFloat("walk", Mathf.Abs(h));
-            playerTrans.position += h * Time.deltaTime * MoveSpeed * Vector3.right;
+            inputMoving = true;
+            move_speed = speed;
+        }
 
-            spriteRenderer.flipX = h > 0 ? false : h < 0 ? true : spriteRenderer.flipX;
+        public void StopMoveAI()
+        {
+            inputMoving = false;
+            move_speed = 0;
+        }
+
+        private void Move(float speed)
+        {
+            animator.SetFloat("walk", Mathf.Abs(speed));
+            playerTrans.position += speed * Time.deltaTime * MoveSpeed * Vector3.right;
+
+            spriteRenderer.flipX = speed > 0 ? false : speed < 0 ? true : spriteRenderer.flipX;
         }
 
 

@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 4493350557098564291}
   - component: {fileID: 4493350557098564290}
   - component: {fileID: 3527344121727583868}
+  - component: {fileID: 7689628269499542348}
   - component: {fileID: 4493350557098564301}
   - component: {fileID: 4493350557098564300}
   - component: {fileID: 4493350557098564303}
-  - component: {fileID: 7689628269499542348}
   m_Layer: 0
   m_Name: RedBean
   m_TagString: Player
@@ -158,6 +158,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874025d48f737c648856a6e587fcc7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7689628269499542348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493350557098564292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf4bf008a94aa3488bd452c0de6ba8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sightLineOffset: {x: 0, y: 0}
+  sightLineLength: {x: 0, y: 0}
+  patrolPoints: []
 --- !u!114 &4493350557098564301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackDamage: 52
   StrikeDamage: 20
+  HitDamage: 5
 --- !u!114 &4493350557098564303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,15 +219,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
---- !u!114 &7689628269499542348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4493350557098564292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf4bf008a94aa3488bd452c0de6ba8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
