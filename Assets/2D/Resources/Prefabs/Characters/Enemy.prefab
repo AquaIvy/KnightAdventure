@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2535201010990015521}
   - component: {fileID: 2535201010990015520}
   - component: {fileID: -593827203402246752}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -200,9 +200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be385147170fc54c966493456f3af35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackDamage: 52
+  AttackDamage: 50
   StrikeDamage: 20
-  HitDamage: 5
+  CollideDamage: 5
 --- !u!114 &-593827203402246752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,4 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf4bf008a94aa3488bd452c0de6ba8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints: []
+  sightLineOffset: {x: 0, y: -0.5}
+  sightLineLength: 2
+  isMoveForward: 1

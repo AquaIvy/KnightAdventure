@@ -19,7 +19,7 @@ namespace KnightAdventure
         public int StrikeDamage = 20;
 
         [Range(0, 10)]
-        public int HitDamage = 5;
+        public int CollideDamage = 5;
 
         protected override void Start()
         {

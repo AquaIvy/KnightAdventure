@@ -1,4 +1,6 @@
 ﻿using Aquaivy.Core.Logs;
+using Aquaivy.Core.Utilities;
+using Aquaivy.Unity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,14 +24,15 @@ namespace KnightAdventure
     {
         [Header("Sight 视线")]
         [SerializeField] private Vector2 sightLineOffset;       //视线相对于自身中心的偏移
-        [SerializeField] private Vector2 sightLineLength;       //视线长度
+        [SerializeField] private float sightLineLength = 2;       //视线长度
+        [SerializeField] bool isMoveForward = true;
 
 
         //[SerializeField] private Vector2[] patrolPoints;        //巡逻点
 
         private Character character;
 
-        private bool isMoveForward = true;
+        private Queue<float> queue_position_x = new Queue<float>(32);
 
         private void Start()
         {
@@ -64,6 +67,11 @@ namespace KnightAdventure
             //    character.Move.StopMoveAI();
             //}
 
+            if (isMoveBlocking)
+            {
+                return;
+            }
+
             bool ground_is_ok = GroundCheck();
             Log.Info("GroundCheck()  " + ground_is_ok);
 
@@ -74,6 +82,37 @@ namespace KnightAdventure
             else
             {
                 isMoveForward = !isMoveForward;
+            }
+
+            MoveBlockCheck();
+        }
+
+        bool isMoveBlocking = false;
+        private void MoveBlockCheck()
+        {
+            if (queue_position_x.Count >= 32)
+                queue_position_x.Dequeue();
+
+            queue_position_x.Enqueue(character.transform.position.x);
+
+            if (queue_position_x.Count >= 32 && queue_position_x.Max() - queue_position_x.Min() < 0.1f)
+            {
+                if (RandomUtils.RandomBool())
+                {
+                    isMoveBlocking = true;
+                    character.Move.Idle();
+
+                    DelayTask.Invoke(() =>
+                    {
+                        isMoveBlocking = false;
+                        queue_position_x.Clear();
+                    }, RandomUtils.RandomMinMax(500, 2000));
+                }
+                else
+                {
+                    GoToNextPatrolPoint();
+                }
+
             }
         }
 
@@ -121,13 +160,12 @@ namespace KnightAdventure
         {
             var origin = (Vector2)character.transform.position + sightLineOffset;
             var direction = isMoveForward ? new Vector2(1, -1) : new Vector2(-1, -1);
-            float distance = 2f;
             LayerMask layerMask = 1 << LayerMask.NameToLayer("Ground");
 
             //Debug.DrawLine(origin, origin + direction * distance, Color.red);
-            Debug.DrawRay(origin, direction * distance, Color.red);
+            Debug.DrawRay(origin, direction * sightLineLength, Color.red);
 
-            var hit = Physics2D.Linecast(origin, origin + direction * distance, layerMask);
+            var hit = Physics2D.Linecast(origin, origin + direction * sightLineLength, layerMask);
             if (hit)
             {
 

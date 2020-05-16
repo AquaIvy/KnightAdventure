@@ -94,7 +94,7 @@ namespace KnightAdventure
             if (character.Attack == null)
                 return;
 
-            this.ReduceHP(character.Attack.HitDamage);
+            this.ReduceHP(character.Attack.CollideDamage);
         }
 
 

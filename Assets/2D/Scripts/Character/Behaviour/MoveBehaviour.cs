@@ -70,6 +70,15 @@ namespace KnightAdventure
 
         #endregion
 
+
+        public void Idle()
+        {
+            inputMoving = false;
+            move_speed = 0;
+
+            animator.SetFloat("walk", 0);
+        }
+
         private bool inputMoving = false;
 
         public void Move(InputAction.CallbackContext ctx)
