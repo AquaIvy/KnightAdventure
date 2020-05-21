@@ -28,8 +28,6 @@ namespace KnightAdventure
         [SerializeField] bool isMoveForward = true;
 
 
-        //[SerializeField] private Vector2[] patrolPoints;        //巡逻点
-
         private Character character;
 
         private Queue<float> queue_position_x = new Queue<float>(32);
@@ -46,34 +44,13 @@ namespace KnightAdventure
 
         private void Update()
         {
-            //if (patrolPoints.Length <= 0)
-            //    return;
-
-            //var point = patrolPoints[currentPatrolPointsIdx];
-            //if (Vector2.Distance(point, (Vector2)transform.position) < 1)
-            //{
-            //    GoToNextPatrolPoint();
-            //}
-            //else if (transform.position.x > point.x)
-            //{
-            //    character.Move.StartMoveAI(-1);
-            //}
-            //else if (transform.position.x < point.x)
-            //{
-            //    character.Move.StartMoveAI(1);
-            //}
-            //else
-            //{
-            //    character.Move.StopMoveAI();
-            //}
-
             if (isMoveBlocking)
             {
                 return;
             }
 
             bool ground_is_ok = GroundCheck();
-            Log.Info("GroundCheck()  " + ground_is_ok);
+            //Log.Info("GroundCheck()  " + ground_is_ok);
 
             if (ground_is_ok)
             {
