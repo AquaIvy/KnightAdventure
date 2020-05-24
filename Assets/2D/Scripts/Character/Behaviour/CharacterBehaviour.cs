@@ -23,6 +23,11 @@ namespace KnightAdventure
         //private Transform playerTrans;
 
 
+        protected virtual void Awake()
+        {
+
+        }
+
         protected virtual void Start()
         {
             character = GetComponent<Character>();

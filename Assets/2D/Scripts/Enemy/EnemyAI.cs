@@ -54,7 +54,7 @@ namespace KnightAdventure
 
             if (ground_is_ok)
             {
-                character.Move.StartMoveAI(isMoveForward ? 1 : -1);
+                //character.Move.StartMoveAI(isMoveForward ? 1 : -1);
             }
             else
             {
@@ -77,7 +77,7 @@ namespace KnightAdventure
                 if (RandomUtils.RandomBool())
                 {
                     isMoveBlocking = true;
-                    character.Move.Idle();
+                    //character.Move.Idle();
 
                     DelayTask.Invoke(() =>
                     {
@@ -114,10 +114,10 @@ namespace KnightAdventure
             character.Move.Jump();
         }
 
-        private void AutoBlink()
-        {
-            character.Move.Blink();
-        }
+        //private void AutoBlink()
+        //{
+        //    character.Move.Blink();
+        //}
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
