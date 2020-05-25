@@ -16,7 +16,7 @@ namespace KnightAdventure
             switch (type)
             {
                 case PlayerType.Knight:
-                    assetPath = "Prefabs/Characters/Knight";
+                    assetPath = "Prefabs/Characters/Knight_New";
                     break;
                 case PlayerType.Guner:
                     break;

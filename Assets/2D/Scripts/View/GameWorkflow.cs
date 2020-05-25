@@ -12,12 +12,19 @@ namespace KnightAdventure
     public class GameWorkflow : UnitySingleton<GameWorkflow>
     {
         private UICanvasController uiCanvas;
+        [SerializeField] private JoystickMovement joystick;
 
         private void Start()
         {
             LoadUICanvas();
+            InitJoystick();
 
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+        }
+
+        private void InitJoystick()
+        {
+            joystick.gameObject.DontDestroyOnLoad();
         }
 
         private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
@@ -25,6 +32,18 @@ namespace KnightAdventure
             if (scene.name == "02_Player")
             {
                 uiCanvas.StopGameOverAnimation();
+            }
+
+            if (joystick != null && Application.platform == RuntimePlatform.Android)
+            {
+                if (scene.name.StartsWith("01_") || scene.name.StartsWith("02_"))
+                {
+                    joystick.gameObject.SetActive(false);
+                }
+                else
+                {
+                    joystick.gameObject.SetActive(true);
+                }
             }
         }
 

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;
+    [SerializeField] private Transform target;
     public Vector3 offset;
     public bool lockPosY = true;
-
 
 
 
@@ -39,5 +38,11 @@ public class CameraFollow : MonoBehaviour
         {
             this.transform.position = target.position - offset;
         }
+    }
+
+
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
     }
 }

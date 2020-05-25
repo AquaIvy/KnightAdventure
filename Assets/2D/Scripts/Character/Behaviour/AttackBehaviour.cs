@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aquaivy.Unity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,53 +22,50 @@ namespace KnightAdventure
         [Range(0, 10)]
         public int CollideDamage = 5;
 
-        protected override void Start()
+        [SerializeField] private float attackInterval = 0.2f;
+        private bool canAttack = true;
+
+        protected override void Awake()
         {
-            base.Start();
+            base.Awake();
         }
 
-        #region InputSystem输入事件
 
-        public void Fire1(InputAction.CallbackContext ctx)
+        public void Attack()
         {
-            if (ctx.phase != InputActionPhase.Started)
+            if (!canAttack)
                 return;
 
-            Fire1();
+            StartCoroutine(AttackCooldown());
         }
 
-        public void Fire2(InputAction.CallbackContext ctx)
+        IEnumerator AttackCooldown()
         {
-            if (ctx.phase != InputActionPhase.Started)
-                return;
-
-            Fire2();
-        }
-
-        #endregion
-
-        #region 最终输入事件
-
-        public void Fire1()
-        {
-            animator.SetTrigger("attack");
+            canAttack = false;
+            animator.SetBool("Attack", true);
             DetectAttack();
+
+            yield return new WaitForSeconds(attackInterval);
+
+            animator.SetBool("Attack", false);
+
+            yield return new WaitForSeconds(0.5f);
+            canAttack = true;
         }
 
-        public void Fire2()
-        {
-            animator.SetTrigger("strike");
+        //public void Fire2()
+        //{
+        //    animator.SetTrigger("strike");
 
-            //这里需要判断，当走的时候才能去做检测
-            DetectStrike();
-        }
+        //    //这里需要判断，当走的时候才能去做检测
+        //    DetectStrike();
+        //}
 
-        #endregion
 
 
         protected override void Update()
         {
-
+            base.Update();
         }
 
 
@@ -87,21 +85,21 @@ namespace KnightAdventure
             }
         }
 
-        private void DetectStrike()
-        {
-            Vector2 offsetForward = new Vector2(1.139406f, -0.5f);
-            Vector2 backForward = new Vector2(-1.14f, -0.5f);
-            Vector2 detectionSize = new Vector2(1.236866f, 1.45f);
+        //private void DetectStrike()
+        //{
+        //    Vector2 offsetForward = new Vector2(1.139406f, -0.5f);
+        //    Vector2 backForward = new Vector2(-1.14f, -0.5f);
+        //    Vector2 detectionSize = new Vector2(1.236866f, 1.45f);
 
-            if (character.IsFaceForward)
-            {
-                DamageDetectionUtils.CreateRectDamage(character, new Rect(offsetForward, detectionSize), 100);
-            }
-            else
-            {
-                DamageDetectionUtils.CreateRectDamage(character, new Rect(backForward, detectionSize), 100);
-            }
-        }
+        //    if (character.IsFaceForward)
+        //    {
+        //        DamageDetectionUtils.CreateRectDamage(character, new Rect(offsetForward, detectionSize), 100);
+        //    }
+        //    else
+        //    {
+        //        DamageDetectionUtils.CreateRectDamage(character, new Rect(backForward, detectionSize), 100);
+        //    }
+        //}
 
     }
 }

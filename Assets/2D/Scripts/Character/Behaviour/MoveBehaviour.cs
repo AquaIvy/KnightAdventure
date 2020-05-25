@@ -77,7 +77,9 @@ namespace KnightAdventure
         /// </summary>
         public UnityEvent OnLandEvent;
 
-
+        [Header("Debug")]
+        [Space]
+        [SerializeField] private bool debugDrawGroundedCircle = false;
 
         private float horizontalMove = 0f;
         private bool jump = false;
@@ -191,6 +193,14 @@ namespace KnightAdventure
         private void OnGUI()
         {
             GUILayout.Box($"m_Grounded={m_Grounded}\tisDashing={isDashing}\tm_IsFrontWall={m_IsFrontWall}\tvelocity={rigidbody.velocity}");
+
+            if (debugDrawGroundedCircle)
+            {
+                Debug.DrawLine(m_GroundCheck.position - new Vector3(k_GroundedCheckRadius, 0, 0), m_GroundCheck.position + new Vector3(k_GroundedCheckRadius, 0, 0), Color.green);
+                Debug.DrawLine(m_GroundCheck.position - new Vector3(0, k_GroundedCheckRadius, 0), m_GroundCheck.position + new Vector3(0, k_GroundedCheckRadius, 0), Color.green);
+
+                Graphic.DrawCircle(m_GroundCheck.position, k_GroundedCheckRadius, Color.yellow);
+            }
         }
 
         public void Move(float move, bool jump, bool dash)
@@ -202,16 +212,12 @@ namespace KnightAdventure
                     StartCoroutine(DashCooldown());
                 }
 
-                // If crouching, check to see if the character can stand up
                 if (isDashing)
                 {
                     rigidbody.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
                 }
-                //only control the player if grounded or airControl is turned on
-                else if ((m_Grounded || m_AirControl) )
+                else if ((m_Grounded || m_AirControl))
                 {
-                    Log.Info("111");
-
                     // 限制下落速度
                     if (rigidbody.velocity.y < -limitFallSpeed)
                         rigidbody.velocity = new Vector2(rigidbody.velocity.x, -limitFallSpeed);
@@ -223,33 +229,27 @@ namespace KnightAdventure
                     // And then smoothing it out and applying it to the character
                     rigidbody.velocity = Vector3.SmoothDamp(rigidbody.velocity, targetVelocity, ref velocity, m_MovementSmoothing);
 
-                    // If the input is moving the player right and the player is facing left...
                     if (move > 0 && !m_FacingRight)
                     {
-                        // ... flip the player.
                         Flip();
                     }
-                    // Otherwise if the input is moving the player left and the player is facing right...
                     else if (move < 0 && m_FacingRight)
                     {
-                        // ... flip the player.
                         Flip();
                     }
                 }
+
 
                 if (m_Grounded && jump)
                 {
                     // 地面起跳
                     animator.SetBool("Jump", true);
-                    //animator.SetBool("JumpUp", true);
                     m_Grounded = false;
                     rigidbody.AddForce(new Vector2(0f, m_JumpForce));
                     canDoubleJump = true;
                 }
                 else if (!m_Grounded && jump && canDoubleJump)
                 {
-                    Log.Info("333");
-
                     // 二段跳
                     canDoubleJump = false;
                     rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0);
@@ -258,36 +258,16 @@ namespace KnightAdventure
                 }
                 else if (!m_Grounded && m_IsFrontWall)
                 {
-                    Log.Info("222");
-
                     // 墙面下滑
-                    if (rigidbody.velocity.y < 0 || isDashing)
+                    if (rigidbody.velocity.y <= 0 || isDashing)
                     {
                         //m_WallCheck.localPosition = new Vector3(-m_WallCheck.localPosition.x, m_WallCheck.localPosition.y, 0);
                         //Flip();
                         //canDoubleJump = true;
+                        rigidbody.velocity = new Vector2(0, -5);
                     }
                     isDashing = false;
 
-
-                    //if (jump)
-                    //{
-                    //    ////向对面墙跳跃
-                    //    //animator.SetBool("Jump", true);
-                    //    ////animator.SetBool("JumpUp", true);
-                    //    //rigidbody.velocity = new Vector2(0f, 0f);
-                    //    //rigidbody.AddForce(new Vector2(transform.localScale.x * m_JumpForce * 1.2f, m_JumpForce));
-
-                    //    ////canDoubleJump = true;
-                    //    //m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
-                    //    //canMove = false;
-                    //}
-                    //else if (dash && canDash)
-                    //{
-                    //    m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
-                    //    canDoubleJump = true;
-                    //    StartCoroutine(DashCooldown());
-                    //}
                 }
             }
         }
@@ -337,7 +317,7 @@ namespace KnightAdventure
             isDashing = true;
             canDash = false;
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.15f);
             animator.SetBool("Dash", false);
             isDashing = false;
 

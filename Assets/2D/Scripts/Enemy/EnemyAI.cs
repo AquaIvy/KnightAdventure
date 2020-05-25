@@ -106,7 +106,7 @@ namespace KnightAdventure
 
         private void AutoAttack()
         {
-            character.Attack.Fire1();
+            character.Attack.Attack();
         }
 
         private void AutoJump()

@@ -26,7 +26,7 @@ namespace KnightAdventure
 
             var cam = Camera.main;
             var follow = cam.GetComponent<CameraFollow>();
-            follow.target = player.transform;
+            follow.SetTarget(player.transform);
             follow.offset = new Vector3(-4, -4.4f, 10);
         }
     }

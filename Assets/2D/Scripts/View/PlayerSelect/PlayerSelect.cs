@@ -14,7 +14,7 @@ namespace KnightAdventure
         private void Start()
         {
 #if UNITY_EDITOR
-            Create();
+            //Create();
 #endif
 
         }
