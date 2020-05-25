@@ -2,47 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+namespace KnightAdventure
 {
-    [SerializeField] private Transform target;
-    public Vector3 offset;
-    public bool lockPosY = true;
 
-
-
-    void Start()
+    public class CameraFollow : MonoBehaviour
     {
-        if (target == null)
+        [SerializeField] private Transform target;
+        public Vector3 offset;
+        public float distance = 10;
+        public bool lockPosY = true;
+
+
+
+        void Start()
         {
-            return;
+            if (target == null)
+            {
+                return;
+            }
+
+            //设置相对偏移
+            offset = target.position - this.transform.position;
         }
 
-        //设置相对偏移
-        offset = target.position - this.transform.position;
+        void LateUpdate()
+        {
+            if (target == null)
+            {
+                return;
+            }
+
+            ////更新位置
+            //if (lockPosY)
+            //{
+            //    var tmpPos = target.position - offset;
+            //    this.transform.position = new Vector3(tmpPos.x, this.transform.position.y, tmpPos.z);
+            //}
+            //else
+            //{
+            //    this.transform.position = target.position - offset;
+            //}
+
+            Vector3 viewPoint = Camera.main.WorldToViewportPoint(target.position, Camera.MonoOrStereoscopicEye.Mono);
+            Debug.Log(viewPoint);
+        }
+
+
+        public void SetTarget(Transform target)
+        {
+            this.target = target;
+        }
     }
 
-    void LateUpdate()
-    {
-        if (target == null)
-        {
-            return;
-        }
-
-        //更新位置
-        if (lockPosY)
-        {
-            var tmpPos = target.position - offset;
-            this.transform.position = new Vector3(tmpPos.x, this.transform.position.y, tmpPos.z);
-        }
-        else
-        {
-            this.transform.position = target.position - offset;
-        }
-    }
-
-
-    public void SetTarget(Transform target)
-    {
-        this.target = target;
-    }
 }
