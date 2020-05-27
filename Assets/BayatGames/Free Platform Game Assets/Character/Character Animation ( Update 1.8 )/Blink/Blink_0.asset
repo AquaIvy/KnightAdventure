@@ -1,0 +1,486 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!43 &-7753512055246973006
+Mesh:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Blink_0
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 6
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 4
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.72, y: 0.735, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose:
+  - e00: 0.019834975
+    e01: 1.4817878
+    e02: 0
+    e03: 0.35865396
+    e10: -0.9999104
+    e11: 0.013384641
+    e12: 0
+    e13: 0.03373229
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  - e00: 3.3906593
+    e01: -0.016692571
+    e02: 0
+    e03: -0.120803684
+    e10: 0.01412498
+    e11: 1.4818401
+    e12: 0
+    e13: -0.33200234
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  - e00: -0.07116477
+    e01: -1.6909275
+    e02: 0
+    e03: 0.14551422
+    e10: 0.998166
+    e11: -0.07630323
+    e12: 0
+    e13: 0.5069355
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  - e00: 0.08318657
+    e01: -1.7413884
+    e02: 0
+    e03: 0.1296168
+    e10: 0.9976157
+    e11: 0.12049899
+    e12: 0
+    e13: -0.5723417
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  - e00: -0.17200412
+    e01: -4.0869446
+    e02: 0
+    e03: -2.0327344
+    e10: 0.998166
+    e11: -0.076303214
+    e12: 0
+    e13: 0.19384345
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  - e00: 0.042215366
+    e01: -4.006957
+    e02: 0
+    e03: -1.9635885
+    e10: 0.9999856
+    e11: 0.039126903
+    e12: 0
+    e13: -0.2100552
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB:
+  - m_Min: {x: 1.4334869, y: 0.7635055, z: 0}
+    m_Max: {x: 1.4334869, y: 0.7635055, z: 0}
+  - m_Min: {x: -2.5743475, y: 0.74698025, z: 0}
+    m_Max: {x: 2.3082023, y: 0.7673202, z: 0}
+  - m_Min: {x: -1.0460788, y: -0.2678269, z: 0}
+    m_Max: {x: 1.4395846, y: -0.15566123, z: 0}
+  - m_Min: {x: -1.2101982, y: -1.2020583, z: 0}
+    m_Max: {x: 1.4694316, y: 0.23450845, z: 0}
+  - m_Min: {x: 1.0950129, y: -0.46875325, z: 0}
+    m_Max: {x: 1.0950129, y: -0.46875325, z: 0}
+  - m_Min: {x: 0.9511299, y: -0.9588032, z: 0}
+    m_Max: {x: 1.01192, y: 0.48117617, z: 0}
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200020001000300
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 4
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 1
+      offset: 0
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 2
+      offset: 0
+      format: 0
+      dimension: 4
+    - stream: 2
+      offset: 16
+      format: 10
+      dimension: 4
+    m_DataSize: 320
+    _typelessdata: ec5138bff6283c3f000000000000000000000000000080bf0000803f0000000000000000000080bfec51383ff6283c3f000000000000000000000000000080bf0000803f0000000000000000000080bfec5138bff6283cbf000000000000000000000000000080bf0000803f0000000000000000000080bfec51383ff6283cbf000000000000000000000000000080bf0000803f0000000000000000000080bf0000303d0000483f0000e83d0000483f0000303d0000543e0000e83d0000543e764f473fc811203ece74843d07f3eb39020000000000000001000000030000001b7d463f940b663e000000000000000001000000030000000500000004000000f16b7b3fdc80923c93effc3400000000020000000400000005000000030000005f1e713f151a6e3d000000000000000003000000050000000400000002000000
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.72, y: 0.735, z: 0}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    offset: 0
+    size: 0
+    path: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10c0be6d28fe4d539c4a39822fe301c, type: 3}
+  m_Name: Blink_0
+  m_EditorClassIdentifier: 
+  m_ApiVersion: 4
+  m_Sprite: {fileID: -9092828279365600596, guid: 445f456e4b154514898d79d71b55c05f,
+    type: 3}
+  m_SharedMesh: {fileID: -7753512055246973006}
+  m_SharedMaterials: []
+--- !u!114 &3079711319180632985
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e715ea371f114f4a8d2584ad476634d, type: 3}
+  m_Name: Blink_0_Data
+  m_EditorClassIdentifier: 
+  m_PivotPoint: {x: 160, y: 126.5}
+  m_Vertices:
+  - {x: 88, y: 200}
+  - {x: 232, y: 200}
+  - {x: 88, y: 53}
+  - {x: 232, y: 53}
+  m_BoneWeights:
+  - weight0: 0.7785562
+    weight1: 0.15631783
+    weight2: 0.06467591
+    weight3: 0.00045003762
+    boneIndex0: 2
+    boneIndex1: 0
+    boneIndex2: 1
+    boneIndex3: 3
+  - weight0: 0.77534646
+    weight1: 0.22465354
+    weight2: 0
+    weight3: 0
+    boneIndex0: 1
+    boneIndex1: 3
+    boneIndex2: 5
+    boneIndex3: 4
+  - weight0: 0.9821158
+    weight1: 0.01788371
+    weight2: 0.0000004711297
+    weight3: 0
+    boneIndex0: 2
+    boneIndex1: 4
+    boneIndex2: 5
+    boneIndex3: 3
+  - weight0: 0.9418697
+    weight1: 0.058130343
+    weight2: 0
+    weight3: 0
+    boneIndex0: 3
+    boneIndex1: 5
+    boneIndex2: 4
+    boneIndex3: 2
+  m_Edges:
+  - index1: 0
+    index2: 1
+  - index1: 1
+    index2: 3
+  - index1: 0
+    index2: 2
+  - index1: 2
+    index2: 3
+  m_Holes: []
+  m_Indices: 000000000100000002000000020000000100000003000000
+  m_BindPoses:
+  - bindPose:
+      e00: 0.019834975
+      e01: 1.4817878
+      e02: 0
+      e03: 0.35865396
+      e10: -0.9999104
+      e11: 0.013384641
+      e12: 0
+      e13: 0.03373229
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    boneLength: 0.6908543
+    path: 
+    name: body bone
+    color: {r: 1, g: 0, b: 0, a: 1}
+    zOrder: 0
+  - bindPose:
+      e00: 3.3906593
+      e01: -0.016692571
+      e02: 0
+      e03: -0.120803684
+      e10: 0.01412498
+      e11: 1.4818401
+      e12: 0
+      e13: -0.33200234
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    boneLength: 1
+    path: head bone
+    name: head bone
+    color: {r: 1, g: 0.75, b: 0, a: 1}
+    zOrder: 0
+  - bindPose:
+      e00: -0.07116477
+      e01: -1.6909275
+      e02: 0
+      e03: 0.14551422
+      e10: 0.998166
+      e11: -0.07630323
+      e12: 0
+      e13: 0.5069355
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    boneLength: 1
+    path: r arm bone
+    name: r arm bone
+    color: {r: 0.5, g: 1, b: 0, a: 1}
+    zOrder: 0
+  - bindPose:
+      e00: 0.08318657
+      e01: -1.7413884
+      e02: 0
+      e03: 0.1296168
+      e10: 0.9976157
+      e11: 0.12049899
+      e12: 0
+      e13: -0.5723417
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    boneLength: 1
+    path: l arm bone
+    name: l arm bone
+    color: {r: 0, g: 1, b: 0.25, a: 1}
+    zOrder: 0
+  - bindPose:
+      e00: -0.17200412
+      e01: -4.0869446
+      e02: 0
+      e03: -2.0327344
+      e10: 0.998166
+      e11: -0.076303214
+      e12: 0
+      e13: 0.19384345
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    boneLength: 1
+    path: r leg bone
+    name: r leg bone
+    color: {r: 0, g: 1, b: 1, a: 1}
+    zOrder: 0
+  - bindPose:
+      e00: 0.042215366
+      e01: -4.006957
+      e02: 0
+      e03: -1.9635885
+      e10: 0.9999856
+      e11: 0.039126903
+      e12: 0
+      e13: -0.2100552
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    boneLength: 1
+    path: l leg bone
+    name: l leg bone
+    color: {r: 0, g: 0.25, b: 1, a: 1}
+    zOrder: 0
+  m_Blendshapes: []
