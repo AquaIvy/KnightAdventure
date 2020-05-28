@@ -16,7 +16,7 @@ namespace KnightAdventure
             Attack.AttackDamage = int.MaxValue;
 
             var size = GetComponent<SpriteRenderer>().size;
-            DamageDetectionUtils.CreateRectDamage(this, new Rect(size.x / 2f, size.y / 2f, size.x, size.y), 0);
+            DamageDetectionUtils.CreateRectDamage(this, new Rect(size.x / 2f, size.y / 2f, size.x, size.y), true, 0);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace KnightAdventure
 
         private void InitJoystick()
         {
-            joystick.gameObject.DontDestroyOnLoad();
+            joystick?.gameObject.DontDestroyOnLoad();
         }
 
         private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)

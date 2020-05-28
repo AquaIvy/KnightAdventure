@@ -63,12 +63,12 @@ namespace KnightAdventure
         /// <summary>
         /// 是否面向正前方（右方）
         /// </summary>
-        public bool IsFaceForward { get { return !spriteRenderer.flipX; } }
+        //public bool IsFaceForward { get { return !spriteRenderer.flipX; } }
 
         /// <summary>
         /// 是否面向后方（左方）
         /// </summary>
-        public bool IsFaceBack { get { return spriteRenderer.flipX; } }
+        //public bool IsFaceBack { get { return spriteRenderer.flipX; } }
 
 
         protected virtual void Start()

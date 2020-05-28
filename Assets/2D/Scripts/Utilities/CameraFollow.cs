@@ -44,7 +44,7 @@ namespace KnightAdventure
             //}
 
             Vector3 viewPoint = Camera.main.WorldToViewportPoint(target.position, Camera.MonoOrStereoscopicEye.Mono);
-            Debug.Log(viewPoint);
+            //Debug.Log(viewPoint);
         }
 
 

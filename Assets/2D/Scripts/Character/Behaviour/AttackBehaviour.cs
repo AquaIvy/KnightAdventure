@@ -1,4 +1,5 @@
 ﻿using Aquaivy.Unity;
+using Gamekit2D;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -37,6 +38,7 @@ namespace KnightAdventure
                 return;
 
             StartCoroutine(AttackCooldown());
+            CameraShaker.Shake(0.2f, 0.3f);
         }
 
         IEnumerator AttackCooldown()
@@ -71,18 +73,13 @@ namespace KnightAdventure
 
         private void DetectAttack()
         {
-            Vector2 offsetForward = new Vector2(1.139406f, -0.5f);
-            Vector2 backForward = new Vector2(-1.14f, -0.5f);
-            Vector2 detectionSize = new Vector2(1.236866f, 1.45f);
+            Vector2 offset = new Vector2(1.139406f, -0.5f);
+            Vector2 size = new Vector2(1.236866f, 1.45f);
 
-            if (character.IsFaceForward)
-            {
-                DamageDetectionUtils.CreateRectDamage(character, new Rect(offsetForward, detectionSize), 100);
-            }
-            else
-            {
-                DamageDetectionUtils.CreateRectDamage(character, new Rect(backForward, detectionSize), 100);
-            }
+            Rect rect = new Rect(offset, size);
+
+
+            DamageDetectionUtils.CreateRectDamage(character, rect, true, 100);
         }
 
         //private void DetectStrike()

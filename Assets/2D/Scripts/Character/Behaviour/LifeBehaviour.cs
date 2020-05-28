@@ -66,7 +66,7 @@ namespace KnightAdventure
 
         public void Die()
         {
-            animator?.SetTrigger("die");
+            animator?.SetBool("Dead", true);
         }
 
         /// <summary>

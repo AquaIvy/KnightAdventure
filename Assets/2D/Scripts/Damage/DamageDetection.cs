@@ -11,15 +11,15 @@ namespace KnightAdventure
     [RequireComponent(typeof(BoxCollider2D))]
     public class DamageDetection : MonoBehaviour
     {
-        private Character character;
+        private Character attacker;
 
         void Awake()
         {
         }
 
-        public void SetData(Character character, Rect rect, int aliveTime)
+        public void SetData(Character attacker, Rect rect, int aliveTime)
         {
-            this.character = character;
+            this.attacker = attacker;
 
             SetDetectionRect(rect);
             if (aliveTime > 0)
@@ -61,9 +61,9 @@ namespace KnightAdventure
             var life = collision.GetComponent<LifeBehaviour>();
             if (life != null)
             {
-                if (collision.GetComponent<Character>() != character)
+                if (collision.GetComponent<Character>() != attacker)
                 {
-                    life.ReduceHP(character.Attack.AttackDamage);
+                    life.ReduceHP(attacker.Attack.AttackDamage);
                 }
             }
         }

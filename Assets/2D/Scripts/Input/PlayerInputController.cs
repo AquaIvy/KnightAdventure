@@ -17,21 +17,21 @@ namespace KnightAdventure
         private bool inputMoving = false;
         private float move_speed = 0f;
 
-        private void Start()
+        private InputAction jump;
+        private InputAction attack;
+        private InputAction dash;
+
+        private void Awake()
         {
-
-            var jump = new InputAction(binding: "<Keyboard>/c");
+            jump = new InputAction(binding: "<Keyboard>/c");
             jump.performed += ctx => moveBehaviour.Jump();
-            jump.Enable();
 
 
-            var attack = new InputAction(binding: "<Keyboard>/x");
+            attack = new InputAction(binding: "<Keyboard>/x");
             attack.performed += ctx => attackBehaviour.Attack();
-            attack.Enable();
 
-            var dash = new InputAction(binding: "<Keyboard>/z");
+            dash = new InputAction(binding: "<Keyboard>/z");
             dash.performed += ctx => moveBehaviour.Dash();
-            dash.Enable();
         }
 
         public void Move(InputAction.CallbackContext ctx)
@@ -56,7 +56,32 @@ namespace KnightAdventure
             }
 
             moveBehaviour.Move(move_speed);
+        }
 
+        private void OnEnable()
+        {
+            jump.Enable();
+            attack.Enable();
+            dash.Enable();
+        }
+
+        private void OnDisable()
+        {
+            jump.Disable();
+            attack.Disable();
+            dash.Disable();
+        }
+
+
+        private void OnDestroy()
+        {
+            jump.Disable();
+            attack.Disable();
+            dash.Disable();
+
+            jump.performed -= ctx => moveBehaviour.Jump();
+            attack.performed -= ctx => attackBehaviour.Attack();
+            dash.performed -= ctx => moveBehaviour.Dash();
         }
     }
 }
