@@ -19,6 +19,7 @@ namespace KnightAdventure
 
         private InputAction jump;
         private InputAction attack;
+        private InputAction cast;
         private InputAction dash;
 
         private void Awake()
@@ -29,6 +30,9 @@ namespace KnightAdventure
 
             attack = new InputAction(binding: "<Keyboard>/x");
             attack.performed += ctx => attackBehaviour.Attack();
+
+            cast = new InputAction(binding: "<Keyboard>/f");
+            cast.performed += ctx => attackBehaviour.Cast();
 
             dash = new InputAction(binding: "<Keyboard>/z");
             dash.performed += ctx => moveBehaviour.Dash();
@@ -62,6 +66,7 @@ namespace KnightAdventure
         {
             jump.Enable();
             attack.Enable();
+            cast.Enable();
             dash.Enable();
         }
 
@@ -69,6 +74,7 @@ namespace KnightAdventure
         {
             jump.Disable();
             attack.Disable();
+            cast.Disable();
             dash.Disable();
         }
 
@@ -77,10 +83,12 @@ namespace KnightAdventure
         {
             jump.Disable();
             attack.Disable();
+            cast.Disable();
             dash.Disable();
 
             jump.performed -= ctx => moveBehaviour.Jump();
             attack.performed -= ctx => attackBehaviour.Attack();
+            cast.performed -= ctx => attackBehaviour.Cast();
             dash.performed -= ctx => moveBehaviour.Dash();
         }
     }

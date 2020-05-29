@@ -28,15 +28,15 @@ namespace KnightAdventure
         //}
 
 
-        public static DamageDetection CreateRectDamage(Character attacker, Rect damageRect, bool followAttacker = true, int aliveTime = 100)
+        public static DamageDetection CreateRectDamage(Character attacker, Rect damageRect, Transform followTarget, int aliveTime = 100)
         {
             if (load == null)
                 load = Resources.Load<GameObject>("RectDamage");
 
             var ins = GameObject.Instantiate<GameObject>(load);
-            if (followAttacker && attacker != null)
+            if (followTarget != null)
             {
-                ins.transform.SetParent(attacker.transform, false);
+                ins.transform.SetParent(followTarget, false);
                 ins.transform.localPosition = Vector3.zero;
             }
             else

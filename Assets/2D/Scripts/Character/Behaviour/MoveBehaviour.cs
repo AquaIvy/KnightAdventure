@@ -15,24 +15,6 @@ namespace KnightAdventure
     public class MoveBehaviour : CharacterBehaviour
     {
         private new Rigidbody2D rigidbody;
-        //private Transform playerTrans;
-        //private CapsuleCollider2D capsuleCollider;
-
-        //[Range(0, 10)]
-        //public float MoveSpeed = 1;
-
-        //[Range(100, 1000)]
-        //public float JumpForce = 400;
-
-        //[SerializeField] private JoystickMovement androidJoystick;
-
-
-        //private float move_speed = 0f;
-
-
-
-
-
 
 
 
@@ -50,10 +32,10 @@ namespace KnightAdventure
         [SerializeField] private bool m_AirControl = true;                          // Whether or not a player can steer while jumping;
         [SerializeField] private bool m_Invincible = false;                         // 是否无敌
 
+        public bool FacingRight { get { return m_FacingRight; } }
+
 
         private bool canMove = true;            // 是否可移动
-
-
         private const float k_GroundedCheckRadius = 0.2f; // Radius of the overlap circle to determine if grounded
         private bool m_Grounded;            // Whether or not the player is grounded.
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -199,7 +181,7 @@ namespace KnightAdventure
                 Debug.DrawLine(m_GroundCheck.position - new Vector3(k_GroundedCheckRadius, 0, 0), m_GroundCheck.position + new Vector3(k_GroundedCheckRadius, 0, 0), Color.green);
                 Debug.DrawLine(m_GroundCheck.position - new Vector3(0, k_GroundedCheckRadius, 0), m_GroundCheck.position + new Vector3(0, k_GroundedCheckRadius, 0), Color.green);
 
-                Graphic.DrawCircle(m_GroundCheck.position, k_GroundedCheckRadius, Color.yellow);
+                GraphicDebug.DrawCircle(m_GroundCheck.position, k_GroundedCheckRadius, Color.yellow);
             }
         }
 

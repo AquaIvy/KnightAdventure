@@ -24,7 +24,13 @@ namespace KnightAdventure
         public int CollideDamage = 5;
 
         [SerializeField] private float attackInterval = 0.2f;
+        [SerializeField] private float castInterval = 0.2f;
+
+        [SerializeField] private Transform m_CasstPosition;
+
         private bool canAttack = true;
+        private bool canCast = true;
+        private FireballCreater fireballCreater = new FireballCreater();
 
         protected override void Awake()
         {
@@ -41,7 +47,15 @@ namespace KnightAdventure
             CameraShaker.Shake(0.2f, 0.3f);
         }
 
-        IEnumerator AttackCooldown()
+        public void Cast()
+        {
+            if (!canCast)
+                return;
+
+            StartCoroutine(CastCooldown());
+        }
+
+        private IEnumerator AttackCooldown()
         {
             canAttack = false;
             animator.SetBool("Attack", true);
@@ -55,13 +69,20 @@ namespace KnightAdventure
             canAttack = true;
         }
 
-        //public void Fire2()
-        //{
-        //    animator.SetTrigger("strike");
+        private IEnumerator CastCooldown()
+        {
+            canCast = false;
+            animator.SetBool("Cast", true);
+            fireballCreater.Fire(character, m_CasstPosition);
 
-        //    //这里需要判断，当走的时候才能去做检测
-        //    DetectStrike();
-        //}
+            yield return new WaitForSeconds(castInterval);
+
+            animator.SetBool("Cast", false);
+
+            yield return new WaitForSeconds(0.5f);
+            canCast = true;
+        }
+
 
 
 
@@ -79,24 +100,8 @@ namespace KnightAdventure
             Rect rect = new Rect(offset, size);
 
 
-            DamageDetectionUtils.CreateRectDamage(character, rect, true, 100);
+            DamageDetectionUtils.CreateRectDamage(character, rect, transform, 100);
         }
-
-        //private void DetectStrike()
-        //{
-        //    Vector2 offsetForward = new Vector2(1.139406f, -0.5f);
-        //    Vector2 backForward = new Vector2(-1.14f, -0.5f);
-        //    Vector2 detectionSize = new Vector2(1.236866f, 1.45f);
-
-        //    if (character.IsFaceForward)
-        //    {
-        //        DamageDetectionUtils.CreateRectDamage(character, new Rect(offsetForward, detectionSize), 100);
-        //    }
-        //    else
-        //    {
-        //        DamageDetectionUtils.CreateRectDamage(character, new Rect(backForward, detectionSize), 100);
-        //    }
-        //}
 
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KnightAdventure
 {
-    public static class Graphic
+    public static class GraphicDebug
     {
         public static void DrawLine(Vector3 start, Vector3 end, Color color)
         {
@@ -28,6 +28,16 @@ namespace KnightAdventure
                 Debug.DrawLine(new Vector3(x1, y1, 0), new Vector3(x2, y2, 0), color);
 
             }
+        }
+
+        public static void DrawRect(Vector3 point, float width, float height, Color color)
+        {
+
+        }
+
+        public static void DrawRect(float x, float y, float width, float height, Color color)
+        {
+            //Debug.DrawLine(new Vector3(x1, y1, 0), new Vector3(x2, y2, 0), color);
         }
     }
 }
