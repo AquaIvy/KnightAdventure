@@ -45,7 +45,8 @@ namespace KnightAdventure
             }
 
             var dectect = ins.GetComponent<DamageDetection>();
-            dectect.SetData(attacker, damageRect, aliveTime);
+            dectect.SetData(attacker,  aliveTime);
+            dectect.SetDetectionRect(damageRect);
 
             return dectect;
         }

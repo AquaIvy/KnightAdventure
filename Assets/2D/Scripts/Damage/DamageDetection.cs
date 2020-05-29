@@ -5,23 +5,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace KnightAdventure
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public class DamageDetection : MonoBehaviour
     {
+        [SerializeField] private LayerMask m_triggeredLayer = -1;   //-1表示所有层
+        [SerializeField] private float aliveTime = 0;               //0表示永远存在
+        public UnityEvent OnTrigger;
+
         private Character attacker;
+        private DelayTask taskAliveCountdown;
 
         void Awake()
         {
         }
 
-        public void SetData(Character attacker, Rect rect, int aliveTime)
+        public void SetData(Damage damage, int aliveTime)
         {
             this.attacker = attacker;
+            this.aliveTime = aliveTime;
 
-            SetDetectionRect(rect);
             if (aliveTime > 0)
             {
                 AliveCountdown(aliveTime);
@@ -35,10 +41,10 @@ namespace KnightAdventure
             box.size = rect.size;
         }
 
-        private DelayTask taskAliveCountdown;
 
         private void AliveCountdown(int aliveTime)
         {
+            taskAliveCountdown?.Release();
             taskAliveCountdown = DelayTask.Invoke(() =>
             {
                 if (this.gameObject != null)
@@ -48,15 +54,19 @@ namespace KnightAdventure
             }, aliveTime);
         }
 
-        private void OnDestroy()
-        {
-            taskAliveCountdown?.Release();
-        }
 
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            //Debug.Log($"DamageDetection  attacker={attacker.gameObject.name}    hit={collision.gameObject.name}");
+            var triggeredObject = collision.gameObject;
+
+            if (!triggeredObject.layer.IsInLayerMask(m_triggeredLayer))
+            {
+                return;
+            }
+
+            Debug.Log($"DamageDetection    hit={triggeredObject.name}");
+            OnTrigger?.Invoke();
 
             var life = collision.GetComponent<LifeBehaviour>();
             if (life != null)
@@ -68,9 +78,9 @@ namespace KnightAdventure
             }
         }
 
-        private void OnTriggerExit2D(Collider2D collision)
+        private void OnDestroy()
         {
-            //Debug.Log($"OnTriggerExit2D  {collision.gameObject.name}");
+            taskAliveCountdown?.Release();
         }
     }
 }
