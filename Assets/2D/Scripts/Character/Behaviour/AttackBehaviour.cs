@@ -98,9 +98,9 @@ namespace KnightAdventure
             Vector2 size = new Vector2(1.236866f, 1.45f);
 
             Rect rect = new Rect(offset, size);
+            rect.x *= character.Move.FacingRight ? 1 : -1;
 
-
-            DamageDetectionUtils.CreateRectDamage(character, rect, transform, 100);
+            DamageTriggerCreater.Create(character, Damage.Type.General, AttackDamage, rect, 10000);
         }
 
     }

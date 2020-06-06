@@ -13,10 +13,10 @@ namespace KnightAdventure
         {
             base.Start();
 
-            Attack.AttackDamage = int.MaxValue;
+            //Attack.AttackDamage = int.MaxValue;
 
-            var size = GetComponent<SpriteRenderer>().size;
-            DamageDetectionUtils.CreateRectDamage(this, new Rect(size.x / 2f, size.y / 2f, size.x, size.y), transform, 0);
+            //var size = GetComponent<SpriteRenderer>().size;
+            //DamageTriggerCreater.CreateRectDamage(this, new Rect(size.x / 2f, size.y / 2f, size.x, size.y), transform, 0);
         }
     }
 }

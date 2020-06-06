@@ -9,6 +9,7 @@ namespace KnightAdventure
     [Serializable]
     public class Damage
     {
+        public Character attacker;
         public Type type;
         public int Value;
 
@@ -16,7 +17,7 @@ namespace KnightAdventure
         public enum Type
         {
             /// <summary>
-            /// 一般伤害，遇到物体触发一次伤害后就时效了
+            /// 一般伤害，遇到物体触发一次伤害后就失效了
             /// </summary>
             General,
 

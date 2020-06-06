@@ -35,7 +35,9 @@ namespace KnightAdventure
             rig.AddForce(force * 300, ForceMode2D.Force);
 
             Rect rect = new Rect(0.1585348f, 0.009190321f, 0.851881f, 0.5521439f);
-            DamageDetectionUtils.CreateRectDamage(character, rect, ins.transform, 10000);
+            rect.x *= character.Move.FacingRight ? 1 : -1;
+
+            DamageTriggerCreater.Attach(character, Damage.Type.General, 20, rect, 100);
         }
     }
 }

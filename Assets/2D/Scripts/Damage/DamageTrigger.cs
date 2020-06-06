@@ -10,13 +10,14 @@ using UnityEngine.Events;
 namespace KnightAdventure
 {
     [RequireComponent(typeof(BoxCollider2D))]
-    public class DamageDetection : MonoBehaviour
+    public class DamageTrigger : MonoBehaviour
     {
         [SerializeField] private LayerMask m_triggeredLayer = -1;   //-1表示所有层
         [SerializeField] private float aliveTime = 0;               //0表示永远存在
+        [SerializeField] private Damage damage;
+
         public UnityEvent OnTrigger;
 
-        private Character attacker;
         private DelayTask taskAliveCountdown;
 
         void Awake()
@@ -25,7 +26,7 @@ namespace KnightAdventure
 
         public void SetData(Damage damage, int aliveTime)
         {
-            this.attacker = attacker;
+            this.damage = damage;
             this.aliveTime = aliveTime;
 
             if (aliveTime > 0)
@@ -71,9 +72,9 @@ namespace KnightAdventure
             var life = collision.GetComponent<LifeBehaviour>();
             if (life != null)
             {
-                if (collision.GetComponent<Character>() != attacker)
+                if (damage.attacker == null || life != damage.attacker.Life)
                 {
-                    life.ReduceHP(attacker.Attack.AttackDamage);
+                    life.ReduceHP(damage.Value);
                 }
             }
         }
